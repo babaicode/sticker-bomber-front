@@ -35,6 +35,7 @@ const Register: React.FC = () => {
         <div>
           <label htmlFor="username">Username:</label>
           <input
+            className='input'
             type="text"
             id="username"
             value={fullname}

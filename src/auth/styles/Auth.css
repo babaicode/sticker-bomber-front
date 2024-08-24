@@ -29,6 +29,7 @@
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .auth-form button {
@@ -65,6 +66,10 @@ p {
 
 .go-to-login{
   width: 50%;
+  font-size: medium;
+  border: #2a2f35 solid 1px;
+  border-radius: 4px;
+  text-align: center;
 }
 
 .buttons-box{
