@@ -1,21 +1,24 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/Auth.css'
-import { register } from '../services/authService'
 import axios from 'axios'
+import { login } from '../service/authService'
 
-const Register: React.FC = () => {
-  const [fullname, setFullname] = useState('')
+const Login: React.FC = () => {
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-
+  const navigate = useNavigate()
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     try {
-      const data = await register(fullname, email, password)
-      setMessage(`Registration successful: ${data.token}`)
+      const data = await login(email, password)
+      setMessage(`Login successful`)
+      if (data.token) {
+        localStorage.setItem('authToken', data.token)
+        navigate('/dashboard')
+      }
     } catch (error) {
       if (axios.isAxiosError(error)) {
         setMessage(
@@ -30,17 +33,8 @@ const Register: React.FC = () => {
   return (
     <div className="auth-container">
       <form onSubmit={handleSubmit} className="auth-form">
-        <h2>Register</h2>
+        <h2>Login</h2>
 
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={fullname}
-            onChange={(e) => setFullname(e.target.value)}
-          />
-        </div>
         <div>
           <label htmlFor="email">Email:</label>
           <input
@@ -55,16 +49,16 @@ const Register: React.FC = () => {
           <input
             type="password"
             id="password"
-            value={password}
+            value={password} 
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Register</button>
-        <Link to="/login">Already have an account?</Link>
+        <button type="submit">Login</button>
+        <Link to="/">Do you need to register?</Link>
       </form>
       {message && <p>{message}</p>}
     </div>
   )
 }
 
-export default Register
+export default Login

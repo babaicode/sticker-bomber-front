@@ -9,7 +9,7 @@
 .auth-form {
   background: #fff;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 8px; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   width: 100%;
@@ -32,7 +32,7 @@
 }
 
 .auth-form button {
-  background-color: #007bff;
+  background-color: #2a2f35;
   color: #fff;
   border: none;
   padding: 10px 15px;
@@ -41,11 +41,11 @@
 }
 
 .auth-form button:hover {
-  background-color: #0056b3;
+  background-color: #2a2f35;
 }
 
 .auth-form a {
-  color: #007bff;
+  color: #2a2f35;
   text-decoration: none;
   margin-left: 150px;
 }
@@ -56,4 +56,27 @@
 
 p {
   margin-top: 10px;
+}
+
+.register-button {
+  width: 50%;
+  font-size: medium;
+}
+
+.go-to-login{
+  width: 50%;
+}
+
+.buttons-box{
+  display: flex;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.auth-form input,
+.auth-form button,
+.auth-form label,
+.auth-container {
+  font-family: 'Roboto', sans-serif;
 }

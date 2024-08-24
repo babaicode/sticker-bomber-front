@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../styles/Auth.css'
-import { login } from '../services/authService'
 import axios from 'axios'
+import { register } from '../service/authService'
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
+  const [fullname, setFullname] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-  const navigate = useNavigate()
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     try {
-      const data = await login(email, password)
-      setMessage(`Login successful`)
-      if (data.token) {
-        localStorage.setItem('authToken', data.token)
-        navigate('/dashboard')
-      }
+      const data = await register(fullname, email, password)
+      setMessage(`Registration successful: ${data.token}`)
     } catch (error) {
       if (axios.isAxiosError(error)) {
         setMessage(
@@ -33,8 +30,17 @@ const Login: React.FC = () => {
   return (
     <div className="auth-container">
       <form onSubmit={handleSubmit} className="auth-form">
-        <h2>Login</h2>
+        <h2>Register</h2>
 
+        <div>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={fullname}
+            onChange={(e) => setFullname(e.target.value)}
+          />
+        </div>
         <div>
           <label htmlFor="email">Email:</label>
           <input
@@ -53,12 +59,14 @@ const Login: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Login</button>
-        <Link to="/">Do you need to register?</Link>
+        <div className='buttons-box'>
+          <button className="register-button" type="submit">Register</button>
+          <Link className='go-to-login' to="/login">I do have account</Link>
+        </div>
       </form>
       {message && <p>{message}</p>}
     </div>
   )
 }
 
-export default Login
+export default Register
