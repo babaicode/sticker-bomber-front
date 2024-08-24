@@ -39,10 +39,18 @@
   padding: 10px 15px;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .auth-form button:hover {
-  background-color: #2a2f35;
+  background-color: #444a50;
+  transform: translateY(-2px);
+}
+
+.auth-form button:active {
+  transform: scale(0.98);
+  background-color: #1e2328;
+  transition: transform 0.1s ease;
 }
 
 .auth-form a {
@@ -70,6 +78,18 @@ p {
   border: #2a2f35 solid 1px;
   border-radius: 4px;
   text-align: center;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.go-to-login:hover {
+  background-color: #aeb2b6;
+  transform: translateY(-2px);
+}
+
+.go-to-login:active {
+  transform: scale(0.98);
+  background-color: #1e2328;
+  transition: transform 0.1s ease;
 }
 
 .buttons-box{

@@ -53,8 +53,10 @@ const Login: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Login</button>
-        <Link to="/">Do you need to register?</Link>
+        <div className='buttons-box'>
+          <button className="register-button" type="submit">Login</button>
+          <Link className='go-to-login' to="/">Do you need to register?</Link>
+        </div>
       </form>
       {message && <p>{message}</p>}
     </div>
