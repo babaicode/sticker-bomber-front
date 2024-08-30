@@ -3,28 +3,38 @@ import { Link } from 'react-router-dom'
 import '../styles/Auth.css'
 import axios from 'axios'
 import { register } from '../service/authService'
+import { useAlert } from '@/alert/AlertContext'
+
 
 const Register: React.FC = () => {
-  const [fullname, setFullname] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
+  const { showAlert } = useAlert()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     try {
-      const data = await register(fullname, email, password)
-      setMessage(`Registration successful: ${data.token}`)
+      const savedNewUser = await register(username, email, password);
+
+      if (savedNewUser) {
+        showAlert('Registration successful', 'success')
+        clearInputs();
+      }
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        setMessage(
-          `Error: ${error.response?.data.message || 'An error occurred'}`
-        )
+        showAlert('An error occurred', 'error')
       } else {
-        setMessage('An unexpected error occurred')
+        showAlert('An unexpected error occurred', 'error')
       }
     }
+  }
+
+  function clearInputs() {
+    setUsername('');
+    setEmail('');
+    setPassword('');
   }
 
   return (
@@ -38,8 +48,8 @@ const Register: React.FC = () => {
             className='input'
             type="text"
             id="username"
-            value={fullname}
-            onChange={(e) => setFullname(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div>
@@ -65,7 +75,6 @@ const Register: React.FC = () => {
           <Link className='go-to-login' to="/login">I do have account</Link>
         </div>
       </form>
-      {message && <p>{message}</p>}
     </div>
   )
 }

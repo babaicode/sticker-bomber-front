@@ -1,33 +1,40 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import '../styles/Auth.css'
-import axios from 'axios'
-import { login } from '../service/authService'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import '../styles/Auth.css';
+import axios from 'axios';
+import { login } from '../service/authService';
+import { useAlert } from '@/alert/AlertContext';
 
 const Login: React.FC = () => {
-  const [password, setPassword] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  const navigate = useNavigate()
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const { showAlert } = useAlert();
+
+  const navigate = useNavigate();
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      const data = await login(email, password)
-      setMessage(`Login successful`)
+      const data = await login(email, password);
       if (data.token) {
-        localStorage.setItem('authToken', data.token)
-        navigate('/dashboard')
+        localStorage.setItem('authToken', data.token);
+        showAlert('Login successful', 'success');
+        navigate('/dashboard');
+        clearInputs();
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        setMessage(
-          `Error: ${error.response?.data.message || 'An error occurred'}`
-        )
+        showAlert(`Error: ${error.response?.data.message || 'An error occurred'}`, 'error');
       } else {
-        setMessage('An unexpected error occurred')
+        showAlert('An unexpected error occurred', 'error');
       }
     }
+  }
+
+  function clearInputs() {
+    setEmail('');
+    setPassword('');
   }
 
   return (
@@ -58,7 +65,6 @@ const Login: React.FC = () => {
           <Link className='go-to-login' to="/">Do you need to register?</Link>
         </div>
       </form>
-      {message && <p>{message}</p>}
     </div>
   )
 }
