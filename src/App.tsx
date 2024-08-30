@@ -6,6 +6,7 @@ import Login from './auth/page/Login';
 import { AlertProvider } from './alert/AlertContext';
 import Alert from './alert/Alert';
 import NavBar from './navbar/NavBar';
+import Streamer from './streamer/page/Streamer';
 
 const App: React.FC = () => {
   return (
@@ -15,9 +16,10 @@ const App: React.FC = () => {
       <ConditionalNavBar />
         <div className="app-container">
           <Routes>
-            <Route path="/" element={<Register />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/home" element={<Dashboard />} />
+            <Route path="/streamer" element={<Streamer />} />
           </Routes>
         </div>
       </Router>
@@ -27,7 +29,7 @@ const App: React.FC = () => {
 
 const ConditionalNavBar: React.FC = () => {
   const location = useLocation();
-  const hideNavBar = location.pathname === '/' || location.pathname === '/login';
+  const hideNavBar = location.pathname === '/register' || location.pathname === '/login';
 
   return !hideNavBar ? <NavBar /> : null;
 };
