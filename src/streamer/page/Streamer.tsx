@@ -1,14 +1,10 @@
 import React from 'react';
+import { AdminLink } from '../components/AdminLink';
 
 const Streamer: React.FC = () => {
   return (
     <div>
-    <h1>Streamer</h1>
-    <h1>Streamer</h1>
-    <h1>Streamer</h1>
-    <h1>Streamer</h1>
-    <h1>Streamer</h1>
-    <h1>Streamer</h1>
+    <AdminLink />
     </div>
   );
 }

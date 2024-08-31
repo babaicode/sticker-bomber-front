@@ -19,6 +19,7 @@ const Login: React.FC = () => {
       const data = await login(email, password);
       if (data.token) {
         localStorage.setItem('authToken', data.token);
+        localStorage.setItem('userId', data.user.id);
         showAlert('Login successful', 'success');
         navigate('/dashboard');
         clearInputs();
