@@ -8,6 +8,7 @@ import Alert from './alert/Alert';
 import NavBar from './navbar/NavBar';
 import Streamer from './streamer/page/Streamer';
 import './styles.css';
+import { WonnaBeStreamer } from './streamer/components/WonnaBeStreamer';
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/home" element={<Dashboard />} />
               <Route path="/streamer" element={<Streamer />} />
+              <Route path="/wonna-be-streamer" element={<WonnaBeStreamer />} />
             </Routes>
           </div>
         </Router>

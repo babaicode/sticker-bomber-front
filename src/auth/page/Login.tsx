@@ -18,8 +18,10 @@ const Login: React.FC = () => {
     try {
       const data = await login(email, password);
       if (data.token) {
+        console.log(data, 'data ahaha');
         localStorage.setItem('authToken', data.token);
         localStorage.setItem('userId', data.user.id);
+        localStorage.setItem('isStreamer', data.user.isStreamer);
         showAlert('Login successful', 'success');
         navigate('/dashboard');
         clearInputs();
