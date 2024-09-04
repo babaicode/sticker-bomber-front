@@ -10,6 +10,7 @@ import Streamer from './streamer/page/Streamer';
 import './styles.css';
 import { WonnaBeStreamer } from './streamer/components/WonnaBeStreamer';
 import Logout from './auth/page/Logout';
+import PrivateRoute from './PrivateRoute';
 
 const App: React.FC = () => {
   return (
@@ -22,10 +23,11 @@ const App: React.FC = () => {
             <Routes>
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
-              <Route path="logout" element={<Logout />} />
-              <Route path="/home" element={<Dashboard />} />
-              <Route path="/streamer" element={<Streamer />} />
-              <Route path="/wonna-be-streamer" element={<WonnaBeStreamer />} />
+
+              <Route path="/" element={<PrivateRoute element={<Dashboard />} />} />
+              <Route path="logout" element={<PrivateRoute element={<Logout />} />} />
+              <Route path="streamer" element={<PrivateRoute element={<Streamer />} />} />
+              <Route path="wonna-be-streamer" element={<PrivateRoute element={<WonnaBeStreamer />} />} />
             </Routes>
           </div>
         </Router>
