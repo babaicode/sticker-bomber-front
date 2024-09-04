@@ -65,7 +65,7 @@ const Login: React.FC = () => {
         </div>
         <div className='buttons-box'>
           <button className="register-button" type="submit">Login</button>
-          <Link className='go-to-login' to="/">Do you need to register?</Link>
+          <Link className='go-to-login' to="/register">Do you need to register?</Link>
         </div>
       </form>
     </div>
