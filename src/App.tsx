@@ -9,6 +9,7 @@ import NavBar from './navbar/NavBar';
 import Streamer from './streamer/page/Streamer';
 import './styles.css';
 import { WonnaBeStreamer } from './streamer/components/WonnaBeStreamer';
+import Logout from './auth/page/Logout';
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
             <Routes>
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+              <Route path="logout" element={<Logout />} />
               <Route path="/home" element={<Dashboard />} />
               <Route path="/streamer" element={<Streamer />} />
               <Route path="/wonna-be-streamer" element={<WonnaBeStreamer />} />
