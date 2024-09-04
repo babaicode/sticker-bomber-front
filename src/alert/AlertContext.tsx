@@ -33,7 +33,7 @@ export const AlertProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     // Remove alert after 3 seconds
     setTimeout(() => {
       setAlerts((prevAlerts) => prevAlerts.slice(1));
-    }, 3000);
+    }, 1000);
   };
 
   const removeAlert = (index: number) => {

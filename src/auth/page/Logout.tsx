@@ -1,17 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from '@/alert/AlertContext';
 
 const Logout: React.FC = () => {
   const navigate = useNavigate();
   const { showAlert } = useAlert();
+  const hasLoggedOut = useRef(false);
 
   useEffect(() => {
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('isStreamer');
-    showAlert('Logout', 'warning');
-    navigate('/login');
+    if (!hasLoggedOut.current) {
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('userId');
+      localStorage.removeItem('isStreamer');
+      showAlert('Logout successful', 'warning');
+      navigate('/login');
+      hasLoggedOut.current = true;
+    }
   }, [navigate, showAlert]);
 
   return null;
