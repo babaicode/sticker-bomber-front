@@ -21,7 +21,7 @@ const App: React.FC = () => {
           <ConditionalNavBar />
           <div className="app-container">
             <Routes>
-              <Route path="/register" element={<Register />} />
+              <Route path="/register/:dynamicParam" element={<Register />} />
               <Route path="/login" element={<Login />} />
 
               <Route path="/" element={<PrivateRoute element={<Dashboard />} />} />
@@ -38,7 +38,8 @@ const App: React.FC = () => {
 
 const ConditionalNavBar: React.FC = () => {
   const location = useLocation();
-  const hideNavBar = location.pathname === '/register' || location.pathname === '/login';
+  const pathnameArray = location.pathname.split('/');
+  const hideNavBar = pathnameArray.includes('register') || pathnameArray.includes('login');
 
   return !hideNavBar ? <NavBar /> : null;
 };

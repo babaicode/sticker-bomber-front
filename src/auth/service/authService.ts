@@ -15,6 +15,30 @@ export const login = async (email: string, password: string) => {
     }
   }
 }
+
+export const registerAdmin = async (
+  username: string,
+  email: string,
+  password: string,
+  streamerId: number
+) => {
+  try {
+    const response = await axios.post(`${API_URL}/streamer/register-admin`, {
+      username,
+      email,
+      password,
+      streamerId,
+    })
+    return response.data
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message || 'An error occurred')
+    } else {
+      throw new Error('An unexpected error occurred')
+    }
+  }
+}
+
 export const register = async (
   username: string,
   email: string,
