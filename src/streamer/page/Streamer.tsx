@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { AdminLink } from '../components/AdminLink';
 import { useNavigate } from 'react-router-dom';
 import { UserLink } from '../components/UserLink';
+import { AdminList } from '../components/AdminList';
 
 const Streamer: React.FC = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Streamer: React.FC = () => {
     <div>
       <AdminLink />
       <UserLink />
+      <AdminList />
     </div>
   );
 }
