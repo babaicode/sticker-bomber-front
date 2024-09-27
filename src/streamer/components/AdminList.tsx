@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import axios from 'axios';
 import { Environment } from '@/environment';
 import { useAlert } from "@/alert/AlertContext";
+import { AdminComponent } from "./AdminComponent";
 
 export const AdminList = () => {
   const { showAlert } = useAlert();
@@ -39,10 +40,7 @@ export const AdminList = () => {
     <div className="admin-link-container">
       {adminArray.length > 0 ? (
         adminArray.map((admin) => (
-          <div key={admin.adminId}>
-            <p>Admin ID: {admin.adminId}</p>
-            <p>User Name: {admin.userName}</p>
-          </div>
+          <AdminComponent key={admin.adminId} adminName={admin.userName} adminId={admin.adminId} />
         ))
       ) : (
         <p>No admins found</p>

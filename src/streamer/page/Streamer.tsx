@@ -10,7 +10,6 @@ const Streamer: React.FC = () => {
   
   useEffect(() => {
     if (isStreamer === 'false') {
-      console.log('redirecting');
       navigate('/wonna-be-streamer');
     }
   }, [isStreamer, navigate]);
