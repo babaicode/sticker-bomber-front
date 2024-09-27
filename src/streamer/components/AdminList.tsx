@@ -11,16 +11,16 @@ export const AdminList = () => {
     userName: string;
   }[]>([]);
   const API_URL = Environment.StickerBomberBackApiURL;
-  const userId: string | null = localStorage.getItem('userId');
+  const streamerId: string | null = localStorage.getItem('streamerId');
 
   const getAdmins = useCallback(async () => {
-    if (!userId) {
-      showAlert('User ID not found', 'error');
+    if (!streamerId) {
+      showAlert('streamer ID not found', 'error');
       return;
     }
 
     try {
-      const response = await axios.get(`${API_URL}/admin/admins-by-streamer/${userId}`);
+      const response = await axios.get(`${API_URL}/admin/admins-by-streamer/${streamerId}`);
       setAdminArray(response.data);
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -29,7 +29,7 @@ export const AdminList = () => {
         showAlert('An unexpected error occurred', 'error');
       }
     }
-  }, [userId, API_URL, showAlert]);
+  }, [streamerId, API_URL, showAlert]);
 
   useEffect(() => {
     getAdmins();

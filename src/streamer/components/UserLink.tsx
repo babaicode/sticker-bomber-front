@@ -8,8 +8,6 @@ export const UserLink = () => {
   const API_URL = Environment.StickerBomberBackApiURL;
   const userId = localStorage.getItem('userId');
 
-  console.log(userId, 'userId');
-
   const { showAlert } = useAlert();
   const [userLink, setUserLink] = useState<string | null>(null);
 

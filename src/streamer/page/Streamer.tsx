@@ -9,7 +9,6 @@ const Streamer: React.FC = () => {
   const isStreamer = localStorage.getItem('isStreamer');
   
   useEffect(() => {
-    console.log(isStreamer, 'isStreamer');
     if (isStreamer === 'false') {
       console.log('redirecting');
       navigate('/wonna-be-streamer');
