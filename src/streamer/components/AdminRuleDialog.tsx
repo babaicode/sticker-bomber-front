@@ -5,7 +5,6 @@ import { AdminRuleDialogProps } from "../interfaces/RulesInterface";
 export const AdminRuleDialog: FC<AdminRuleDialogProps> = ({ visible, onClose, title, rules, allRules }) => {
   if (!visible) return null;
 
-  console.log(rules);
   return (
     <div className="dialog-overlay">
       <div className="dialog-container">
