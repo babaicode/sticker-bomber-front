@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { AdminLink } from '../components/AdminLink';
 import { useNavigate } from 'react-router-dom';
 import { UserLink } from '../components/UserLink';
-import { AdminList } from '../components/AdminList';
+import { AdminList } from '../components/admin/AdminList';
 
 const Streamer: React.FC = () => {
   const navigate = useNavigate();

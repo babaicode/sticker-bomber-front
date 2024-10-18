@@ -1,8 +1,31 @@
-import { FC } from "react";
-import '../styles/AdminRuleDialog.css'; 
-import { AdminRuleDialogProps } from "../interfaces/RulesInterface";
+import { FC, useEffect, useState } from "react";
+import '../../styles/AdminRuleDialog.css'; 
+import { AdminRuleDialogProps, AdminRuleInterface, AllRulesInterface } from "@/streamer/interfaces/RulesInterface";
 
 export const AdminRuleDialog: FC<AdminRuleDialogProps> = ({ visible, onClose, title, rules, allRules }) => {
+  // const [rule, setRule] = useState<AdminRuleInterface[]>();
+  // const [allRule, setAllRule] = useState<AllRulesInterface[]>();
+
+  // const dragRule = async (rule: AdminRuleInterface | AllRulesInterface) => {
+  //   // if this is an AdminRuleInterface
+  //   if ('adminId' in rule) {
+
+  //   } else if ('isActive' in rule) {
+
+  //   }
+    
+  // };
+
+  // useEffect(() => {
+  //   if (rules) {
+  //     setRule(rules);
+  //   }
+  //   if (allRules) {
+  //     setAllRule(allRules);
+  //   }
+  //   console.log(allRules, 'allRules');
+  // }, [rules, allRules]);
+
   if (!visible) return null;
 
   return (

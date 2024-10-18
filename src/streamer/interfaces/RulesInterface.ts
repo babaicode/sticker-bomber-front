@@ -1,8 +1,3 @@
-export interface AllRulesInterface {
-  id: number;
-  rule: string;
-}
-
 export interface AdminRuleDialogProps {
   visible: boolean;
   onClose: () => void;
@@ -13,5 +8,13 @@ export interface AdminRuleDialogProps {
 
 export interface AdminRuleInterface {
   id: number;
-  ruleText: string;
+  adminId: number;
+  ruleId: number;
+  rule: string;
+}
+
+export interface AllRulesInterface {
+  id: number;
+  rule: string;
+  isActive: boolean;
 }

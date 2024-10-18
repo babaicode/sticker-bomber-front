@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
-import { AdminComponentProps } from "../interfaces/StreamerInterface";
-import '../styles/AdminComponent.css';
+import { AdminComponentProps } from "../../interfaces/StreamerInterface";
+import '../../styles/AdminComponent.css';
 import { Environment } from "@/environment";
 import { useAlert } from "@/alert/AlertContext";
 import axios from "axios";
 import { AdminRuleDialog } from "./AdminRuleDialog";
-import { AdminRuleInterface, AllRulesInterface } from "../interfaces/RulesInterface";
+import { AdminRuleInterface, AllRulesInterface } from "../../interfaces/RulesInterface";
 
 export const AdminComponent: React.FC<AdminComponentProps> = ({ adminName, adminId }) => {
   const API_URL = Environment.StickerBomberBackApiURL;
