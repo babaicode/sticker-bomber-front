@@ -42,7 +42,8 @@
   margin: 0 auto;
   flex: none; 
   display: inline-block;
-  background-color: #787878;
+  background-color: #333333;
+  color: white;
 }
 
 .show-admin-link-button-container {

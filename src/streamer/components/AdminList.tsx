@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Environment } from '@/environment';
 import { useAlert } from "@/alert/AlertContext";
 import { AdminComponent } from "./AdminComponent";
+import '../styles/AdminListComponent.css';
 
 export const AdminList = () => {
   const { showAlert } = useAlert();
@@ -37,7 +38,7 @@ export const AdminList = () => {
   }, [getAdmins]);
 
   return (
-    <div className="admin-link-container">
+    <div className="container">
       {adminArray.length > 0 ? (
         adminArray.map((admin) => (
           <AdminComponent key={admin.adminId} adminName={admin.userName} adminId={admin.adminId} />
