@@ -13,6 +13,6 @@ export interface AdminRuleDialogProps {
 }
 
 export interface AdminRuleInterface {
-  id: number;
+  ruleId: number;
   ruleText: string;
 }
