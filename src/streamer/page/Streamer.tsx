@@ -3,6 +3,7 @@ import { AdminLink } from '../components/AdminLink';
 import { useNavigate } from 'react-router-dom';
 import { UserLink } from '../components/UserLink';
 import { AdminList } from '../components/AdminList';
+import '../styles/StreamerPage.css';
 
 const Streamer: React.FC = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Streamer: React.FC = () => {
   }, [isStreamer, navigate]);
 
   return (
-    <div>
+    <div className='container'>
       <AdminLink />
       <UserLink />
       <AdminList />
