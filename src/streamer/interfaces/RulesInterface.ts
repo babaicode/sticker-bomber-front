@@ -9,6 +9,7 @@ export interface AdminRuleDialogProps {
   title?: string;
   rules: AdminRuleInterface[] | null;
   allRules: AllRulesInterface[] | null;
+  adminId: number;
 }
 
 export interface AdminRuleInterface {

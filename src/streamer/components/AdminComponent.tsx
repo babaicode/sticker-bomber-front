@@ -52,7 +52,14 @@ export const AdminComponent: React.FC<AdminComponentProps> = ({ adminName, admin
       <p>{adminName}</p>
       <button onClick={openDialog}>Show Admin Rules</button>
 
-      <AdminRuleDialog visible={isDialogOpen} onClose={closeDialog} rules={rules} title="Admin Rules" allRules={allRules} />
+      <AdminRuleDialog 
+        visible={isDialogOpen} 
+        onClose={closeDialog} 
+        rules={rules}
+        title="Admin Rules"
+        allRules={allRules}
+        adminId={adminId} 
+      />
     </div>
   );
 };
