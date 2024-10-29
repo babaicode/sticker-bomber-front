@@ -2,7 +2,7 @@ import { useAlert } from "@/alert/AlertContext";
 import axios from 'axios';
 import { Environment } from '@/environment';
 import { useCallback, useEffect, useState } from "react";
-
+import '../styles/UserLinkComponent.css';
 
 export const UserLink = () => {
   const API_URL = Environment.StickerBomberBackApiURL;
@@ -10,6 +10,7 @@ export const UserLink = () => {
 
   const { showAlert } = useAlert();
   const [userLink, setUserLink] = useState<string | null>(null);
+  const [shouldShow, setShouldShow] = useState(false);
 
   const getUserLink = useCallback(async () => {
     try {
@@ -45,10 +46,25 @@ export const UserLink = () => {
   }, [userId, getUserLink]);
  
   return (
-    <div className="user-link-container">
-      <p>User Link</p>
-      {userLink ? <p>{userLink}</p> : <p>Loading...</p>}
-      <button onClick={generateUserLink}>Generate new link</button>
+    <div>
+      { shouldShow ? (
+      <div>
+        <h3 style={{ textAlign: "center" }}>User Link</h3>
+        <div className="admin-link-container">
+          {userLink ? <p>{userLink}</p> : <p>Loading...</p>}
+          <div className="button-box">
+            <button className="button-1 small" role="button" onClick={generateUserLink}>Generate new link</button>
+            <button className="button-1 mega-small" role="button" onClick={() => setShouldShow(false)}>x</button>
+          </div>
+        </div>
+      </div>
+      ) : (
+        <div className="show-user-link-button-container">
+          <button className="button-1" role="button" onClick={() => setShouldShow(true)}>
+            Show User Link
+          </button>
+        </div> 
+      )}
     </div>
   );
 }
