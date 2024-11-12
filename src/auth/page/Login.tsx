@@ -22,6 +22,7 @@ const Login: React.FC = () => {
         localStorage.setItem('userId', data.user.userId);
         localStorage.setItem('isStreamer', data.user.isStreamer);
         localStorage.setItem('streamerId', data.user.streamerId);
+        localStorage.setItem('adminId', data.user.adminId);
 
         showAlert('Login successful', 'success');
         navigate('/dashboard');
