@@ -59,3 +59,16 @@ export const register = async (
     }
   }
 }
+
+export async function getAuthorAvatar(adminId: number) {
+  try {
+    const response = await axios.post(`${API_URL}/admin/get-avatar`, { adminId })
+    return response.data
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message || 'An error occurred')
+    } else {
+      throw new Error('An unexpected error occurred')
+    }
+  }
+}

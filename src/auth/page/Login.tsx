@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import '../styles/Auth.css';
 import axios from 'axios';
-import { login } from '../service/authService';
+import { getAuthorAvatar, login } from '../service/authService';
 import { useAlert } from '@/alert/AlertContext';
 
 const Login: React.FC = () => {
@@ -23,6 +23,11 @@ const Login: React.FC = () => {
         localStorage.setItem('isStreamer', data.user.isStreamer);
         localStorage.setItem('streamerId', data.user.streamerId);
         localStorage.setItem('adminId', data.user.adminId);
+
+        if (data.user.adminId !== null) {
+          const adminId = Number(data.user.adminId);
+          await getAuthorAvatar(adminId);
+        }
 
         showAlert('Login successful', 'success');
         navigate('/dashboard');
