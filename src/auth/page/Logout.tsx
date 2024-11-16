@@ -12,6 +12,9 @@ const Logout: React.FC = () => {
       localStorage.removeItem('authToken');
       localStorage.removeItem('userId');
       localStorage.removeItem('isStreamer');
+      localStorage.removeItem('adminId');
+      localStorage.removeItem('streamerId');
+
       showAlert('Logout successful', 'warning');
       navigate('/login');
       hasLoggedOut.current = true;

@@ -4,15 +4,16 @@ import './styles/navbar.css';
 import { getAuthorAvatar } from '@/auth/service/authService';
 
 const NavBar: React.FC = () => {
-
   const [avatar, setAvatar] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchAvatar = async () => {
       const adminId = localStorage.getItem('adminId');
-      if (adminId !== undefined) {
+      if (adminId && adminId !== 'undefined') {
         const avatarUrl = await getAuthorAvatar(Number(adminId));
-        setAvatar(avatarUrl);
+        if (avatarUrl) {
+          setAvatar(avatarUrl);
+        }
       }
     };
 

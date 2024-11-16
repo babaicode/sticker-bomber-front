@@ -21,7 +21,7 @@ const App: React.FC = () => {
           <ConditionalNavBar />
           <div className="app-container">
             <Routes>
-              <Route path="/register/:dynamicParam" element={<Register />} />
+              <Route path="/register/:dynamicParam?" element={<Register />} />
               <Route path="/login" element={<Login />} />
 
               <Route path="/" element={<PrivateRoute element={<Dashboard />} />} />
