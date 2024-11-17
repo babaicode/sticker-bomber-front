@@ -59,6 +59,7 @@ export const AdminList = () => {
             key={admin.adminId}
             userName={admin.userName}
             avatarUrl={admin.avatarUrl}
+            adminId={admin.adminId}
           />
         ))
       ) : (

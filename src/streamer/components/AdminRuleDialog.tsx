@@ -1,16 +1,16 @@
 import { FC, useEffect, useState } from "react";
-import '../styles/AdminRuleDialog.css'; 
+import "../styles/AdminRuleDialog.css";
 import { AdminRuleDialogProps } from "../interfaces/RulesInterface";
 import axios from "axios";
-import { Environment } from '@/environment';
+import { Environment } from "@/environment";
 
 export const AdminRuleDialog: FC<AdminRuleDialogProps> = ({ visible, onClose, title, rules, allRules, adminId }) => {
   const [ruleStates, setRuleStates] = useState<{ [key: number]: boolean }>({});
+  const [isUpdating, setIsUpdating] = useState(false);
   const API_URL = Environment.StickerBomberBackApiURL;
 
   useEffect(() => {
     if (allRules && rules) {
-
       const initialState: { [key: number]: boolean } = {};
       allRules.forEach((rule) => {
         const isAdminRule = rules.some((adminRule) => adminRule.ruleId === rule.id);
@@ -26,6 +26,7 @@ export const AdminRuleDialog: FC<AdminRuleDialogProps> = ({ visible, onClose, ti
       [ruleId]: checked,
     }));
 
+    setIsUpdating(true);
     try {
       if (checked) {
         await axios.post(`${API_URL}/admin-ruls/${adminId}/${ruleId}`);
@@ -34,6 +35,8 @@ export const AdminRuleDialog: FC<AdminRuleDialogProps> = ({ visible, onClose, ti
       }
     } catch (error) {
       console.error("Error updating rule:", error);
+    } finally {
+      setIsUpdating(false);
     }
   };
 
@@ -49,20 +52,19 @@ export const AdminRuleDialog: FC<AdminRuleDialogProps> = ({ visible, onClose, ti
           </button>
         </div>
         <div className="dialog-box">
-          <div>
-            <ul>
-              {allRules?.map((rule) => (
-                <li key={rule.id}>
-                  {rule.rule}
-                  <input
-                    type="checkbox"
-                    checked={!!ruleStates[rule.id]}
-                    onChange={(e) => handleCheckboxChange(rule.id, e.target.checked)}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
+          {isUpdating && <p className="loading-text">Updating...</p>}
+          <ul className="rule-list">
+            {allRules?.map((rule) => (
+              <li key={rule.id} className="rule-item">
+                <span>{rule.rule}</span>
+                <input
+                  type="checkbox"
+                  checked={!!ruleStates[rule.id]}
+                  onChange={(e) => handleCheckboxChange(rule.id, e.target.checked)}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

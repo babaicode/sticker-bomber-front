@@ -1,21 +1,58 @@
-.container {
-  width: 100vw;
+.admin-card-container {
+  margin: 10px;
+  display: inline-block;
+  text-align: center;
 }
 
-.admin-block {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  color: #ffffff;
-  background-color: #ccc; /* Default background color */
-  background-size: cover;
-  background-position: center;
+.admin-card {
   height: 150px;
   width: 150px;
   border-radius: 8px;
   margin: 10px;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  background-color: #ccc;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.admin-card:hover {
+  transform: scale(1.05);
+}
+
+.admin-name {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.dialog-container {
+  max-width: 400px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  margin: auto;
+}
+
+.rule-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rule-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.loading-text {
+  text-align: center;
+  margin-bottom: 10px;
+  font-style: italic;
+  color: gray;
 }
