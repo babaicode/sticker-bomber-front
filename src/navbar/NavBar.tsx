@@ -5,6 +5,7 @@ import { getAuthorAvatar } from '@/auth/service/authService';
 
 const NavBar: React.FC = () => {
   const [avatar, setAvatar] = useState<string | null>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const fetchAvatar = async () => {
@@ -14,6 +15,9 @@ const NavBar: React.FC = () => {
         if (avatarUrl) {
           setAvatar(avatarUrl);
         }
+        setIsAdmin(true); // Set isAdmin to true if adminId exists
+      } else {
+        setIsAdmin(false); // Set isAdmin to false if adminId is not present
       }
     };
 
@@ -23,7 +27,8 @@ const NavBar: React.FC = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="nav-link">Home</Link>
-      <Link to="/streamer" className="nav-link">Streamer</Link>
+      {!isAdmin && <Link to="/streamer" className="nav-link">Streamer</Link>}
+      {isAdmin && <Link to="/admin" className="nav-link">Admin</Link>}
       <Link to="/logout" className="nav-link">Logout</Link>
       {avatar && <img src={avatar} alt="User Avatar" className="avatar" />}
     </nav>

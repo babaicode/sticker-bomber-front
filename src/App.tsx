@@ -11,6 +11,7 @@ import './styles.css';
 import { WonnaBeStreamer } from './streamer/components/WonnaBeStreamer';
 import Logout from './auth/page/Logout';
 import PrivateRoute from './PrivateRoute';
+import AdminPage from './admin/page/AdminPage';
 
 const App: React.FC = () => {
   return (
@@ -27,6 +28,7 @@ const App: React.FC = () => {
               <Route path="/" element={<PrivateRoute element={<Dashboard />} />} />
               <Route path="logout" element={<PrivateRoute element={<Logout />} />} />
               <Route path="streamer" element={<PrivateRoute element={<Streamer />} />} />
+              <Route path="admin" element={<PrivateRoute element={<AdminPage />} />} />
               <Route path="wonna-be-streamer" element={<PrivateRoute element={<WonnaBeStreamer />} />} />
             </Routes>
           </div>
