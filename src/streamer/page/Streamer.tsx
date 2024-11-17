@@ -17,8 +17,10 @@ const Streamer: React.FC = () => {
 
   return (
     <div className='container'>
-      <AdminLink />
-      <UserLink />
+      <div className='buttons'>
+        <AdminLink />
+        <UserLink />
+      </div>
       <AdminList />
     </div>
   );
