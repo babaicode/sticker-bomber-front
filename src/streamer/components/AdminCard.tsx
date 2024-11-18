@@ -37,13 +37,8 @@ export const AdminCard: React.FC<AdminCardProps> = ({ userName, avatarUrl, admin
     }
   }, [API_URL, showAlert]);
 
-  const openDialog = () => {
-    setIsDialogOpen(true);
-  };
-
-  const closeDialog = () => {
-    setIsDialogOpen(false);
-  };
+  const openDialog = () => setIsDialogOpen(true);
+  const closeDialog = () => setIsDialogOpen(false);
 
   useEffect(() => {
     if (adminId) {
@@ -58,8 +53,6 @@ export const AdminCard: React.FC<AdminCardProps> = ({ userName, avatarUrl, admin
         className="admin-card"
         style={{
           backgroundImage: avatarUrl ? `url(${avatarUrl})` : undefined,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
         }}
         onClick={openDialog}
       >

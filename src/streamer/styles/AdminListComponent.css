@@ -1,40 +1,67 @@
+.admin-list-container {
+  background-color: #f9f9f9;
+  border-radius: 24px;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
 .admin-card-container {
-  margin: 10px;
-  display: inline-block;
   text-align: center;
+  margin: 10px;
+  flex: 1 1 calc(20% - 1rem);
+  max-width: calc(20% - 1rem);
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .admin-card {
+  width: 100%;
   height: 150px;
-  width: 150px;
-  border-radius: 8px;
-  margin: 10px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-  background-color: #ccc;
+  background-color: #d9d9d9;
+  background-size: cover;
+  background-position: center;
   cursor: pointer;
-  transition: transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .admin-card:hover {
   transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .admin-name {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 5px 10px;
-  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .dialog-container {
   max-width: 400px;
   padding: 20px;
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   margin: auto;
 }
 
@@ -48,6 +75,10 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .loading-text {
@@ -55,16 +86,4 @@
   margin-bottom: 10px;
   font-style: italic;
   color: gray;
-}
-
-.admin-list-container {
-  background-color: #fafafa;
-  border-radius: 24px;
-  padding: 1rem;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
