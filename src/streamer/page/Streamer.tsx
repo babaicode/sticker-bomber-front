@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserLink } from '../components/UserLink';
 import { AdminList } from '../components/AdminList';
 import '../styles/StreamerPage.css';
+import StickerListComponent from '@/sticker/components/StickerListComponent';
 
 const Streamer: React.FC = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const Streamer: React.FC = () => {
         <UserLink />
       </div>
       <AdminList />
+      <StickerListComponent />
     </div>
   );
 }
