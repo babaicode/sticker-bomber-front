@@ -5,6 +5,7 @@ import { UserLink } from '../components/UserLink';
 import { AdminList } from '../components/AdminList';
 import '../styles/StreamerPage.css';
 import StickerListComponent from '@/sticker/components/StickerListComponent';
+import { BalanceComponent } from '../components/Balance';
 
 const Streamer: React.FC = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const Streamer: React.FC = () => {
         <AdminLink />
         <UserLink />
       </div>
+      <BalanceComponent />
       <AdminList />
       <StickerListComponent />
     </div>
