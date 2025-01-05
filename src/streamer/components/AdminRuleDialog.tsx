@@ -4,7 +4,14 @@ import { AdminRuleDialogProps } from "../interfaces/RulesInterface";
 import axios from "axios";
 import { Environment } from "@/environment";
 
-export const AdminRuleDialog: FC<AdminRuleDialogProps> = ({ visible, onClose, title, rules, allRules, adminId }) => {
+export const AdminRuleDialog: FC<AdminRuleDialogProps> = ({
+  visible,
+  onClose,
+  title,
+  rules,
+  allRules,
+  adminId
+}) => {
   const [ruleStates, setRuleStates] = useState<{ [key: number]: boolean }>({});
   const [isUpdating, setIsUpdating] = useState(false);
   const API_URL = Environment.StickerBomberBackApiURL;
