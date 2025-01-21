@@ -4,6 +4,7 @@ import { useAlert } from '@/alert/AlertContext';
 import axios from 'axios';
 import { Environment } from '@/environment';
 import StickerCard from './StickerCard';
+import CreateStickerComponent from './CreateStickerComponent';
 
 export interface Sticker {
   stickerId: number;
@@ -65,7 +66,8 @@ const StickerListComponent: React.FC = () => {
 
   return (
     <div className='sticker-list-container'>
-      {stickers.length > 0 ? (
+      <CreateStickerComponent />
+      { stickers &&
         stickers.map((sticker) => (
           <StickerCard
             key={sticker.stickerId}
@@ -73,10 +75,7 @@ const StickerListComponent: React.FC = () => {
             stickerUrl={sticker.stickerUrl}
             stickerName={sticker.stickerName}
           />
-        ))
-      ) : (
-        <p>No stickers found</p>
-      )}
+        ))}
     </div>
   );
 }
