@@ -25,7 +25,7 @@ const StickerListComponent: React.FC = () => {
       const streamerOrAdmin = streamerId ? "streamer" : "admin"; 
       const response = await axios.get(`${API_URL}/sticker/${streamerOrAdmin}/${id}`);
       
-      if (response.data) {
+      if (response.data && Object.keys(response.data).length > 0) {
         const { stickerName, stickerId, file } = response.data;
 
         const byteCharacters = atob(file);
@@ -53,7 +53,11 @@ const StickerListComponent: React.FC = () => {
             }
           ];
         });        
-      }      
+      } else if (!response.data || Object.keys(response.data).length === 0) {
+        // No stickers found
+      } else {
+        showAlert('No stickers found', 'warning');
+      }  
     } catch (error) {
       showAlert('Error fetching sticker', 'error');
     }

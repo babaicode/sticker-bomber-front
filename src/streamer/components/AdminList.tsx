@@ -6,6 +6,12 @@ import { getAuthorAvatar } from "@/auth/service/authService";
 import '../styles/AdminListComponent.css';
 import { AdminCard } from "./AdminCard";
 
+export interface AdminList {
+  adminId: number;
+  userId: number;
+  userName: string;
+}
+
 export interface Admin {
   adminId: number;
   userId: number;
@@ -27,6 +33,16 @@ export const AdminList = () => {
 
     try {
       const response = await axios.get(`${API_URL}/admin/admins-by-streamer/${streamerId}`);
+
+      if (!Array.isArray(response.data) ||
+        !response.data.every(item => 
+          typeof item.adminId === 'number' && 
+          typeof item.userId === 'number' && 
+          typeof item.userName === 'string'
+      )) {
+        showAlert(`Do not have admins`, "warning");
+      }
+
       const adminsWithAvatars = await Promise.all(
         response.data.map(async (admin: Admin) => {
           try {
