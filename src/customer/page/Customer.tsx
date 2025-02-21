@@ -4,15 +4,18 @@ import { useParams } from 'react-router-dom';
 import { StreamerData } from '../interfaces/CustomerInterface';
 import { Environment } from '@/environment';
 import { Sticker } from '@/sticker/interfaces/StickerInterface';
+import StickerCard from '@/sticker/components/StickerCard';
+import '../styles/CustomerPage.css';
 
 const Customer: React.FC = () => {
   const { customerParam } = useParams<{ customerParam: string }>();
   const [streamerData, setStreamerData] = useState<StreamerData | null>(null);
   const [stickers, setStickers] = useState<Sticker[]>([]);
   const API_URL = Environment.StickerBomberBackApiURL;
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   if (!customerParam) {
-    return <div>Invalid customer</div>;
+    return <div>Invalid streamer link</div>;
   }
 
   const getStreamerData = useCallback(async () => {
@@ -53,18 +56,27 @@ const Customer: React.FC = () => {
 
   useEffect(() => {
     getStreamerData();
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [getStreamerData]);
 
   return (
-    <div className='container'>
-      <h2>{streamerData?.streamerName}</h2>
-      <div className="sticker-list">
-        {stickers.map((sticker) => (
-          <div key={sticker.stickerId} className="sticker-card">
-            <img src={sticker.url} alt={sticker.stickerName} />
-            <p>{sticker.stickerName}</p>
-          </div>
-        ))}
+    <div className={`container ${isMobile ? "mobile" : "desktop"}`}>
+      <h1>{streamerData?.streamerName}</h1>
+      <div className={`sticker-list ${isMobile ? "sticker-list-mobile" : ""}`}>
+        {stickers &&
+          stickers.map((sticker) => (
+            <StickerCard
+              key={sticker.stickerId}
+              stickerId={sticker.stickerId}
+              stickerUrl={sticker.url}
+              stickerName={sticker.stickerName}
+            />
+          ))}
       </div>
     </div>
   );
