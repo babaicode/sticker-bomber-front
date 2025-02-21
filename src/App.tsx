@@ -12,6 +12,7 @@ import { WonnaBeStreamer } from './streamer/components/WonnaBeStreamer';
 import Logout from './auth/page/Logout';
 import PrivateRoute from './PrivateRoute';
 import AdminPage from './admin/page/AdminPage';
+import Customer from './customer/page/Customer';
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <div className="app-container">
             <Routes>
               <Route path="/register/:dynamicParam?" element={<Register />} />
+              <Route path="/c/:customerParam?" element={<Customer />} />
               <Route path="/login" element={<Login />} />
 
               <Route path="/" element={<PrivateRoute element={<Dashboard />} />} />

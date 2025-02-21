@@ -3,3 +3,9 @@ export interface StickerInterface {
   stickerUrl: string;
   stickerName: string;
 }
+
+export interface Sticker {
+  stickerId: number;
+  url: string;
+  stickerName: string;
+}

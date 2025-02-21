@@ -5,12 +5,7 @@ import axios from 'axios';
 import { Environment } from '@/environment';
 import StickerCard from './StickerCard';
 import CreateStickerComponent from './CreateStickerComponent';
-
-export interface Sticker {
-  stickerId: number;
-  url: string;
-  stickerName: string;
-}
+import { Sticker } from '../interfaces/StickerInterface';
 
 const StickerListComponent: React.FC = () => {
   const { showAlert } = useAlert();
