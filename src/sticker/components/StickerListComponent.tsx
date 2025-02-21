@@ -8,7 +8,7 @@ import CreateStickerComponent from './CreateStickerComponent';
 
 export interface Sticker {
   stickerId: number;
-  stickerUrl: string;
+  url: string;
   stickerName: string;
 }
 
@@ -25,34 +25,35 @@ const StickerListComponent: React.FC = () => {
       const streamerOrAdmin = streamerId ? "streamer" : "admin"; 
       const response = await axios.get(`${API_URL}/sticker/${streamerOrAdmin}/${id}`);
       
-      if (response.data && Object.keys(response.data).length > 0) {
-        const { stickerName, stickerId, file } = response.data;
-
-        const byteCharacters = atob(file);
-        const byteNumbers = new Array(byteCharacters.length);
-        for (let i = 0; i < byteCharacters.length; i++) {
-          byteNumbers[i] = byteCharacters.charCodeAt(i);
-        }
-        const byteArray = new Uint8Array(byteNumbers);
-        const blob = new Blob([byteArray], { type: 'image/jpeg' });
-        const stickerUrl = URL.createObjectURL(blob);
-      
-        const stickerIdNum = Number(stickerId);
-        const stickerNameStr = String(stickerName);
-      
-        setStickers((prevStickers) => {
-          if (prevStickers.some((s) => s.stickerId === stickerIdNum)) {
-            return prevStickers;
+      if (response.data && Object.keys(response.data.stickers).length > 0) {
+        for (let sticker of response.data.stickers) {
+          const { stickerName, stickerId, stickerUrl } = sticker;
+    
+          const byteCharacters = atob(stickerUrl);
+          const byteNumbers = new Array(byteCharacters.length);
+          for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
           }
-          return [
-            ...prevStickers,
-            {
-              stickerId: stickerIdNum,
-              stickerUrl,
-              stickerName: stickerNameStr
+          const byteArray = new Uint8Array(byteNumbers);
+          const blob = new Blob([byteArray], { type: 'image/jpeg' });
+          const stickerUrlObject = URL.createObjectURL(blob);
+        
+          const stickerIdNum = Number(stickerId);
+          const stickerNameStr = String(stickerName);
+          setStickers((prevStickers) => {
+            if (prevStickers.some((s) => s.stickerId === stickerIdNum)) {
+              return prevStickers;
             }
-          ];
-        });        
+            return [
+              ...prevStickers,
+              {
+                stickerId: stickerIdNum,
+                url: stickerUrlObject,
+                stickerName: stickerNameStr
+              }
+            ];
+          });    
+        }  
       } else if (!response.data || Object.keys(response.data).length === 0) {
         // No stickers found
       } else {
@@ -63,7 +64,6 @@ const StickerListComponent: React.FC = () => {
     }
   }, [streamerId, adminId, API_URL, showAlert]);
   
-
   useEffect(() => {
     fetchStickers();
   }, []);
@@ -76,7 +76,7 @@ const StickerListComponent: React.FC = () => {
           <StickerCard
             key={sticker.stickerId}
             stickerId={sticker.stickerId}
-            stickerUrl={sticker.stickerUrl}
+            stickerUrl={sticker.url}
             stickerName={sticker.stickerName}
           />
         ))}
