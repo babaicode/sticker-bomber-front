@@ -6,6 +6,7 @@ import { Environment } from '@/environment';
 import { Sticker } from '@/sticker/interfaces/StickerInterface';
 import StickerCard from '@/sticker/components/StickerCard';
 import '../styles/CustomerPage.css';
+import CustomerNavbar from '../components/CustomerNavbar';
 
 const Customer: React.FC = () => {
   const { customerParam } = useParams<{ customerParam: string }>();
@@ -65,18 +66,21 @@ const Customer: React.FC = () => {
   }, [getStreamerData]);
 
   return (
-    <div className={`container ${isMobile ? "mobile" : "desktop"}`}>
-      <h1>{streamerData?.streamerName}</h1>
-      <div className={`sticker-list ${isMobile ? "sticker-list-mobile" : ""}`}>
-        {stickers &&
-          stickers.map((sticker) => (
-            <StickerCard
+    <div>
+      <CustomerNavbar />
+      <div className={`container ${isMobile ? "mobile" : "desktop"}`}>
+        <h1>{streamerData?.streamerName}</h1>
+        <div className={`sticker-list ${isMobile ? "sticker-list-mobile" : ""}`}>
+          {stickers &&
+            stickers.map((sticker) => (
+              <StickerCard
               key={sticker.stickerId}
               stickerId={sticker.stickerId}
               stickerUrl={sticker.url}
               stickerName={sticker.stickerName}
-            />
-          ))}
+              />
+            ))}
+        </div>
       </div>
     </div>
   );

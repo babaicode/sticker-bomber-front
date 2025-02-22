@@ -13,6 +13,7 @@ import Logout from './auth/page/Logout';
 import PrivateRoute from './PrivateRoute';
 import AdminPage from './admin/page/AdminPage';
 import Customer from './customer/page/Customer';
+import StreamerList from './customer/page/StreamerList';
 
 const App: React.FC = () => {
   return (
@@ -24,7 +25,8 @@ const App: React.FC = () => {
           <div className="app-container">
             <Routes>
               <Route path="/register/:dynamicParam?" element={<Register />} />
-              <Route path="/c/:customerParam?" element={<Customer />} />
+              <Route path="/customer/:customerParam?" element={<Customer />} />
+              <Route path="/streamer-list" element={<StreamerList />} />
               <Route path="/login" element={<Login />} />
 
               <Route path="/" element={<PrivateRoute element={<Dashboard />} />} />
@@ -43,7 +45,7 @@ const App: React.FC = () => {
 const ConditionalNavBar: React.FC = () => {
   const location = useLocation();
   const pathnameArray = location.pathname.split('/');
-  const hideNavBar = pathnameArray.includes('register') || pathnameArray.includes('login');
+  const hideNavBar = pathnameArray.includes('register') || pathnameArray.includes('login')  || pathnameArray.includes('customer') || pathnameArray.includes('streamer-list');
 
   return !hideNavBar ? <NavBar /> : null;
 };

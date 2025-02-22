@@ -15,9 +15,9 @@ const NavBar: React.FC = () => {
         if (avatarUrl) {
           setAvatar(avatarUrl);
         }
-        setIsAdmin(true); // Set isAdmin to true if adminId exists
+        setIsAdmin(true);
       } else {
-        setIsAdmin(false); // Set isAdmin to false if adminId is not present
+        setIsAdmin(false);
       }
     };
 
