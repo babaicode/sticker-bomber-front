@@ -8,4 +8,5 @@ export interface Sticker {
   stickerId: number;
   url: string;
   stickerName: string;
+  price: number;
 }

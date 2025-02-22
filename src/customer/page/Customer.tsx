@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { StreamerData } from '../interfaces/CustomerInterface';
 import { Environment } from '@/environment';
 import { Sticker } from '@/sticker/interfaces/StickerInterface';
@@ -14,6 +14,7 @@ const Customer: React.FC = () => {
   const [stickers, setStickers] = useState<Sticker[]>([]);
   const API_URL = Environment.StickerBomberBackApiURL;
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const navigate = useNavigate();
 
   if (!customerParam) {
     return <div>Invalid streamer link</div>;
@@ -65,6 +66,16 @@ const Customer: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, [getStreamerData]);
 
+  const handleStickerClick = (sticker: Sticker) => {
+    navigate(`/sp`, {
+      state: {
+        streamerData,
+        sticker,
+      },
+    });
+    console.log('Sticker clicked');
+  };
+
   return (
     <div>
       <CustomerNavbar />
@@ -78,6 +89,7 @@ const Customer: React.FC = () => {
               stickerId={sticker.stickerId}
               stickerUrl={sticker.url}
               stickerName={sticker.stickerName}
+              onClick={() => handleStickerClick(sticker)}
               />
             ))}
         </div>

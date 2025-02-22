@@ -5,12 +5,13 @@ export interface StickerCardProps {
   stickerId: number;
   stickerUrl: string;
   stickerName: string;
+  onClick?: () => void;
 }
 
-const StickerCard: React.FC<StickerCardProps> = ({ stickerUrl, stickerName }) => {
+const StickerCard: React.FC<StickerCardProps> = ({ stickerUrl, stickerName, onClick }) => {
 
   return (
-    <div className="sticker-card-container">
+    <div className="sticker-card-container" onClick={onClick}>
       <div
         className='sticker-card'
         style={{

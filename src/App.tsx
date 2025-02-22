@@ -14,6 +14,7 @@ import PrivateRoute from './PrivateRoute';
 import AdminPage from './admin/page/AdminPage';
 import Customer from './customer/page/Customer';
 import StreamerList from './customer/page/StreamerList';
+import StickerPicker from './customer/components/StickerPicker';
 
 const App: React.FC = () => {
   return (
@@ -27,8 +28,8 @@ const App: React.FC = () => {
               <Route path="/register/:dynamicParam?" element={<Register />} />
               <Route path="/customer/:customerParam?" element={<Customer />} />
               <Route path="/streamer-list" element={<StreamerList />} />
+              <Route path="/sp" element={<StickerPicker />} />
               <Route path="/login" element={<Login />} />
-
               <Route path="/" element={<PrivateRoute element={<Dashboard />} />} />
               <Route path="logout" element={<PrivateRoute element={<Logout />} />} />
               <Route path="streamer" element={<PrivateRoute element={<Streamer />} />} />
@@ -45,7 +46,11 @@ const App: React.FC = () => {
 const ConditionalNavBar: React.FC = () => {
   const location = useLocation();
   const pathnameArray = location.pathname.split('/');
-  const hideNavBar = pathnameArray.includes('register') || pathnameArray.includes('login')  || pathnameArray.includes('customer') || pathnameArray.includes('streamer-list');
+  const hideNavBar = pathnameArray.includes('register') ||
+    pathnameArray.includes('login') ||
+    pathnameArray.includes('customer') ||
+    pathnameArray.includes('streamer-list') ||
+    pathnameArray.includes('sp');
 
   return !hideNavBar ? <NavBar /> : null;
 };
