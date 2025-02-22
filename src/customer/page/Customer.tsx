@@ -13,7 +13,7 @@ const Customer: React.FC = () => {
   const [streamerData, setStreamerData] = useState<StreamerData | null>(null);
   const [stickers, setStickers] = useState<Sticker[]>([]);
   const API_URL = Environment.StickerBomberBackApiURL;
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1440);
   const navigate = useNavigate();
 
   if (!customerParam) {
@@ -59,7 +59,7 @@ const Customer: React.FC = () => {
   useEffect(() => {
     getStreamerData();
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 1440);
     };
 
     window.addEventListener("resize", handleResize);

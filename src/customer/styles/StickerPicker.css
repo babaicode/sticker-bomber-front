@@ -1,0 +1,56 @@
+/* all */
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 2vh;
+}
+
+.sticker-info {
+}
+
+/* pc */
+@media (min-width: 769px) {
+    .container {
+        align-items: flex-start;
+        justify-content: flex-start;
+        border: 2px solid red;
+    }
+
+    .sticker {
+        width: 35vw;
+        height: 40vh;
+        object-fit: contain;
+        margin: 0;
+    }
+
+    .sticker-info {
+    }
+}
+
+/* mobic */
+@media (max-width: 1440px) {
+    .container {
+        align-items: center;
+        justify-content: flex-start;
+        border: 2px solid red;
+    }
+
+    .sticker {
+        width: 90vw;
+        height: auto;
+        max-height: 50vh;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    .sticker-info {
+        margin-left: 2vw;
+        text-align: left;
+        align-self: flex-start;
+        width: 100%;
+        padding: 1vh 0;
+    }
+}
