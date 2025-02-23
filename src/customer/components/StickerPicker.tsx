@@ -24,7 +24,7 @@ if (mediaQuery.matches) {
             <img className="sticker" src={sticker.url} alt={sticker.stickerName} />
             <div className="sticker-info">
                 <h3>Sticker: {sticker.stickerName}</h3>
-                <h3>Price: {sticker.price}</h3>
+                <h3>Price per second: {sticker.price}</h3>
             </div>
         </div>
     );
