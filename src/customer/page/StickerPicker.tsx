@@ -2,6 +2,7 @@ import { Sticker } from "@/sticker/interfaces/StickerInterface";
 import { useLocation } from "react-router-dom";
 import { StreamerData } from "../interfaces/CustomerInterface";
 import '../styles/StickerPicker.css';
+import StickerLocation from "../components/StickerLocation";
 
 const StickerPicker = () => {
     const location = useLocation();
@@ -10,14 +11,6 @@ const StickerPicker = () => {
         sticker: Sticker;
     };
 
-const mediaQuery = window.matchMedia('(max-width: 1440px)');
-
-if (mediaQuery.matches) {
-  console.log('Mobile mode: @media (max-width: 1440px) is active');
-} else {
-  console.log('Desktop mode: @media (max-width: 1440px) is not active');
-}
-    
     return (
         <div className="container">
             <h2>Send to {streamerData.streamerName}</h2>
@@ -26,6 +19,7 @@ if (mediaQuery.matches) {
                 <h3>Sticker: {sticker.stickerName}</h3>
                 <h3>Price per second: {sticker.price}</h3>
             </div>
+            <StickerLocation />
         </div>
     );
 }

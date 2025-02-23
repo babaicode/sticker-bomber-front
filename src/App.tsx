@@ -14,7 +14,7 @@ import PrivateRoute from './PrivateRoute';
 import AdminPage from './admin/page/AdminPage';
 import Customer from './customer/page/Customer';
 import StreamerList from './customer/page/StreamerList';
-import StickerPicker from './customer/components/StickerPicker';
+import StickerPicker from './customer/page/StickerPicker';
 
 const App: React.FC = () => {
   return (
