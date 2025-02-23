@@ -6,13 +6,25 @@
     }
 
     .sticker {
-        width: 35vw;
+        width: 40vw;
         height: 40vh;
         object-fit: contain;
         margin: 0;
     }
 
     .sticker-info {
+        margin-left: 10vw;
+        display: flex;
+        flex-direction: row;
+        gap: 5vw;
+    }
+
+    h2 {
+        font-size: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
     }
 }
 
