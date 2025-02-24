@@ -1,68 +1,64 @@
-/* pc */
-@media (min-width: 1440px) {
-    .container {
-        justify-content: flex-start;
-    }
-
-    .sticker {
-        width: 40vw;
-        height: 40vh;
-        object-fit: contain;
-        margin: 0;
-    }
-
-    .sticker-info {
-        margin-left: 10vw;
-        display: flex;
-        flex-direction: row;
-        gap: 5vw;
-    }
-
-    h2 {
-        font-size: 4rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100vw;
-    }
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
 }
 
-/* mobil */
-@media (max-width: 1440px) {
-    .container {
-        align-items: center;
-        justify-content: flex-start;
-        display: flex;
-        flex-direction: column;
-    }
+/* Desktop Layout */
+.desktop .sticker-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90vw;
+}
 
-    .sticker {
-        width: 90vw;
-        height: auto;
-        max-height: 50vh;
-        object-fit: contain;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.desktop .sticker {
+    width: 40vw;
+    height: 40vh;
+    object-fit: contain;
+}
 
-    .sticker-info {
-        margin-left: 10vw;
-        text-align: left;
-        align-self: flex-start;
-        width: 100%;
-        padding: 1vh 0;
-        display: flex;
-        flex-direction: row;
-        gap: 10vw;
-    }
+.desktop .sticker-info {
+    margin-left: 5vw;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
 
-    h2 {
-        font-size: 4rem;
-    }
+/* Mobile Layout */
+.mobile .sticker-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
 
-    h3 {
-        font-size: 3rem;
-    }
+.mobile .sticker {
+    width: 90vw;
+    max-height: 50vh;
+    object-fit: contain;
+}
+
+.mobile .sticker-info {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 2rem;
 }
