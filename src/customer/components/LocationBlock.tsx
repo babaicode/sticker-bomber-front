@@ -19,7 +19,7 @@ const LocationBlock = () => {
       {isMobile ? (
         !shouldShowMap ? (
           <button
-            className="button-1 big"
+            className="location-block-button big"
             role="button"
             onClick={() => setShouldShowMap(true)}
           >
