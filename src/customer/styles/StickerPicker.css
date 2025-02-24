@@ -1,7 +1,6 @@
 /* pc */
 @media (min-width: 1440px) {
     .container {
-        align-items: flex-start;
         justify-content: flex-start;
     }
 
