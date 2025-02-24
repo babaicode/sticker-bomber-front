@@ -24,9 +24,7 @@ const StickerPicker = () => {
 
     return (
         <div className={`container ${isMobile ? "mobile" : "desktop"}`}>
-            <h2>Send to {streamerData.streamerName}</h2>
-
-            <div className={`sticker-wrapper ${isMobile ? "mobile-layout" : "desktop-layout"}`}>
+            <div className="sticker-wrapper">
                 <img className="sticker" src={sticker.url} alt={sticker.stickerName} />
                 <div className="sticker-info">
                     <h3>Sticker: {sticker.stickerName}</h3>
@@ -34,7 +32,9 @@ const StickerPicker = () => {
                 </div>
             </div>
 
-            <StickerLocation />
+            <div className="sticker-location">
+                <StickerLocation />
+            </div>
         </div>
     );
 }
