@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import "../styles/StickerLocation.css";
+import "../styles/LocationBlock.css";
+import StickerLocation from "./StickerLocation"; // <-- Импорт
 
 const LocationBlock = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1440);
@@ -17,7 +18,11 @@ const LocationBlock = () => {
     <div>
       {isMobile ? (
         !shouldShowMap ? (
-          <button className="button-1 big" role="button" onClick={() => setShouldShowMap(true)}>
+          <button
+            className="button-1 big"
+            role="button"
+            onClick={() => setShouldShowMap(true)}
+          >
             Open Map
           </button>
         ) : (
@@ -26,11 +31,15 @@ const LocationBlock = () => {
             <button className="close-button" onClick={() => setShouldShowMap(false)}>
               ✖ Close
             </button>
+
+            <StickerLocation />
           </div>
         )
       ) : (
         <div className="map sidebar">
           <p>Map for PC</p>
+
+          <StickerLocation />
         </div>
       )}
     </div>
