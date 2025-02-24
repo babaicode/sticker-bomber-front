@@ -74,10 +74,13 @@
 .sidebar {
   position: absolute;
   right: 0;
-  width: 30%;
-  height: 100vh;
+  width: 70%; /* Fix width to 70% */
+  height: 100%;
   background-color: white;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  border: solid 1px black;
+  border-left: solid 2px black; /* Change border to left */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
