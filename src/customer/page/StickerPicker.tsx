@@ -23,7 +23,7 @@ const StickerPicker = () => {
     }, []);
 
     return (
-        <div className={`container ${isMobile ? "mobile" : "desktop"}`}>
+        <div className={`sticker-picker-container ${isMobile ? "mobile" : "desktop"}`}>
             <div className="sticker-wrapper">
                 <img className="sticker" src={sticker.url} alt={sticker.stickerName} />
                 <div className="sticker-info">

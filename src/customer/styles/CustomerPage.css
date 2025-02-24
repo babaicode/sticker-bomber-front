@@ -1,4 +1,4 @@
-.container {
+.customer-container {
     width: 100%;
     padding: 20px;
     transition: all 0.3s ease-in-out;
@@ -12,7 +12,7 @@
   }
 
   @media (max-width: 1440px) {
-    .container {
+    .customer-container {
       padding: 10px;
     }
     

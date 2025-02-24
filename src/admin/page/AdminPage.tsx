@@ -4,7 +4,7 @@ import UploadAvatarComponent from '../components/UploadAvatarComponent';
 
 const AdminPage: React.FC = () => {
   return (
-    <div className='container'>
+    <div className='admin-page-container'>
       <UploadAvatarComponent />
     </div>
   );

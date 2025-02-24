@@ -79,7 +79,7 @@ const Customer: React.FC = () => {
   return (
     <div>
       <CustomerNavbar />
-      <div className={`container ${isMobile ? "mobile" : "desktop"}`}>
+      <div className={`customer-container ${isMobile ? "mobile" : "desktop"}`}>
         <h1>{streamerData?.streamerName}</h1>
         <div className={`sticker-list ${isMobile ? "sticker-list-mobile" : ""}`}>
           {stickers &&

@@ -18,7 +18,7 @@ const Streamer: React.FC = () => {
   }, [isStreamer, navigate]);
 
   return (
-    <div className='container'>
+    <div className='streamer-container'>
       <div className='buttons'>
         <AdminLink />
         <UserLink />
