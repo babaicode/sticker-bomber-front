@@ -2,8 +2,8 @@ import { Sticker } from "@/sticker/interfaces/StickerInterface";
 import { useLocation } from "react-router-dom";
 import { StreamerData } from "../interfaces/CustomerInterface";
 import '../styles/StickerPicker.css';
-import StickerLocation from "../components/StickerLocation";
 import { useState, useEffect } from "react";
+import LocationBlock from "../components/LocationBlock";
 
 const StickerPicker = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 1440);
@@ -33,7 +33,7 @@ const StickerPicker = () => {
             </div>
 
             <div className="sticker-location">
-                <StickerLocation />
+                <LocationBlock />
             </div>
         </div>
     );
