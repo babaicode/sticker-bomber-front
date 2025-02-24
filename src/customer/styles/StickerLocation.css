@@ -73,13 +73,14 @@
 /* Sidebar for PC */
 .sidebar {
   position: absolute;
-  right: 0;
-  width: 70%; /* Fix width to 70% */
-  height: 100%;
+  left: 30%;
+  top: 0;
+  width: 70%;
+  height: 120vh;
   background-color: white;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  border-left: solid 2px black; /* Change border to left */
+  border-left: solid 2px black;
   display: flex;
   align-items: center;
   justify-content: center;
