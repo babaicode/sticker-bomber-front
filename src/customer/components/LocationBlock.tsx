@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/LocationBlock.css";
-import StickerLocation from "./StickerLocation"; // <-- Импорт
+import StickerLocation from "./StickerLocation";
 
-const LocationBlock = () => {
+interface LocationBlockProps {
+  stickerUrl: string;
+}
+
+const LocationBlock: React.FC<LocationBlockProps> = ({ stickerUrl }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1440);
   const [shouldShowMap, setShouldShowMap] = useState(false);
 
@@ -32,14 +36,14 @@ const LocationBlock = () => {
               ✖ Close
             </button>
 
-            <StickerLocation />
+            <StickerLocation stickerUrl={stickerUrl}/>
           </div>
         )
       ) : (
         <div className="map sidebar">
           <p>Map for PC</p>
 
-          <StickerLocation />
+          <StickerLocation stickerUrl={stickerUrl}/>
         </div>
       )}
     </div>

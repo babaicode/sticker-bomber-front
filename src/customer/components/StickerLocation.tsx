@@ -1,11 +1,15 @@
 import React, { useRef, useState, useEffect } from "react";
 import "../styles/StickerLocation.css";
 
-const StickerLocation: React.FC = () => {
-  const [coords, setCoords] = useState({ x: 100, y: 100 });
+interface StickerLocationProps {
+  stickerUrl: string;
+}
 
+const StickerLocation: React.FC<StickerLocationProps> = ({ stickerUrl }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const stickerRef = useRef<HTMLImageElement>(null);
 
+  const [coords, setCoords] = useState({ x: 50, y: 50 });
   const [dragging, setDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
@@ -13,9 +17,12 @@ const StickerLocation: React.FC = () => {
     e.preventDefault();
     setDragging(true);
 
+    const sticker = stickerRef.current;
+    if (!sticker) return;
+
     setOffset({
-      x: e.clientX - coords.x,
-      y: e.clientY - coords.y,
+      x: e.clientX - sticker.getBoundingClientRect().left,
+      y: e.clientY - sticker.getBoundingClientRect().top,
     });
   };
 
@@ -27,31 +34,17 @@ const StickerLocation: React.FC = () => {
     if (!dragging) return;
 
     const container = containerRef.current;
-    if (!container) return;
+    const sticker = stickerRef.current;
+    if (!container || !sticker) return;
 
     const rect = container.getBoundingClientRect();
+    const stickerSize = sticker.getBoundingClientRect();
 
-    let newX = e.clientX - offset.x;
-    let newY = e.clientY - offset.y;
+    let newX = e.clientX - rect.left - offset.x + stickerSize.width / 2;
+    let newY = e.clientY - rect.top - offset.y + stickerSize.height / 2;
 
-    const stickerWidth = 100; 
-    const stickerHeight = 100;
-
-    if (newX < rect.left + stickerWidth / 2) {
-      newX = rect.left + stickerWidth / 2;
-    }
-
-    if (newX > rect.right - stickerWidth / 2) {
-      newX = rect.right - stickerWidth / 2;
-    }
-
-    if (newY < rect.top + stickerHeight / 2) {
-      newY = rect.top + stickerHeight / 2;
-    }
-
-    if (newY > rect.bottom - stickerHeight / 2) {
-      newY = rect.bottom - stickerHeight / 2;
-    }
+    newX = Math.max(stickerSize.width / 2, Math.min(newX, rect.width - stickerSize.width / 2));
+    newY = Math.max(stickerSize.height / 2, Math.min(newY, rect.height - stickerSize.height / 2));
 
     setCoords({ x: newX, y: newY });
   };
@@ -68,12 +61,13 @@ const StickerLocation: React.FC = () => {
   return (
     <div className="sticker-location-container" ref={containerRef}>
       <img
-        src="/images/sticker.png"
+        ref={stickerRef}
+        src={stickerUrl}
         alt="Sticker"
         className="draggable-sticker"
         style={{
-          left: coords.x,
-          top: coords.y,
+          left: `${coords.x}px`,
+          top: `${coords.y}px`,
           transform: "translate(-50%, -50%)",
           position: "absolute",
         }}
