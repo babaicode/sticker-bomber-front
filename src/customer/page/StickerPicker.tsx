@@ -4,10 +4,12 @@ import { StreamerData } from "../interfaces/CustomerInterface";
 import '../styles/StickerPicker.css';
 import { useState, useEffect } from "react";
 import LocationBlock from "../components/LocationBlock";
+import StickerLocationTime from "../components/StickerLocationTime";
 
 const StickerPicker = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 1440);
     const location = useLocation();
+    const [time, setTime] = useState<number>(0);
 
     const { streamerData, sticker } = location.state as {
         streamerData: StreamerData;
@@ -30,10 +32,11 @@ const StickerPicker = () => {
                     <h3>Sticker: {sticker.stickerName}</h3>
                     <h3>Price per second: {sticker.price}</h3>
                 </div>
+                <StickerLocationTime setTime={setTime} />
             </div>
 
             <div className="sticker-location">
-                <LocationBlock sticker={sticker} streamerId={streamerData.streamerId}/>
+                <LocationBlock sticker={sticker} streamerId={streamerData.streamerId} time={time}/>
             </div>
         </div>
     );

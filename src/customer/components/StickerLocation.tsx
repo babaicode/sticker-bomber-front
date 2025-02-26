@@ -4,7 +4,7 @@ import "../styles/StickerLocation.css";
 import { StickerLocationProps } from "../interfaces/StickerLocationInterface";
 import { Environment } from "@/environment";
 
-const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId }) => {
+const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, time }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const stickerRef = useRef<HTMLImageElement>(null);
 
@@ -15,14 +15,18 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId }
   const API_URL = Environment.StickerBomberBackApiURL;
 
   const sendCoordsToBackend = async () => {
+    if (time === 0) {
+      alert("Please select a time first");
+      return;
+    }
     try {
-      console.log("Coordinates sent:", coords);
+      console.log("Coordinates sent:", coords, time);
       await axios.post(`${API_URL}/sticker-location/customer-send-sticker/`, {
         stickerId: sticker.stickerId,
         streamerId,
         location_x: coords.x,
         location_y: coords.y,
-        time: 5,
+        time: time,
       });
     } catch (error) {
       console.error("Error sending coordinates:", error);

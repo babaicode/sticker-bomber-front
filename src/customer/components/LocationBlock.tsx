@@ -3,7 +3,7 @@ import "../styles/LocationBlock.css";
 import StickerLocation from "./StickerLocation";
 import { StickerLocationProps } from "../interfaces/StickerLocationInterface";
 
-const LocationBlock: React.FC<StickerLocationProps> = ({sticker, streamerId}) => {
+const LocationBlock: React.FC<StickerLocationProps> = ({ sticker, streamerId, time }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1440);
   const [shouldShowMap, setShouldShowMap] = useState(false);
 
@@ -33,14 +33,14 @@ const LocationBlock: React.FC<StickerLocationProps> = ({sticker, streamerId}) =>
               ✖ Close
             </button>
 
-            <StickerLocation sticker={sticker} streamerId={streamerId}/>
+            <StickerLocation sticker={sticker} streamerId={streamerId} time={time}/>
           </div>
         )
       ) : (
         <div className="map sidebar">
           <p>Map for PC</p>
 
-          <StickerLocation sticker={sticker} streamerId={streamerId}/>
+          <StickerLocation sticker={sticker} streamerId={streamerId} time={time}/>
         </div>
       )}
     </div>
