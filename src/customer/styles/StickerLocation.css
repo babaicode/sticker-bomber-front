@@ -6,6 +6,9 @@
   margin: 0 auto;
   background: #f2f2f2;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .draggable-sticker {
@@ -16,4 +19,23 @@
 
 .draggable-sticker:active {
   cursor: grabbing;
+}
+
+.save-button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.save-button:hover {
+  background: darkgreen;
 }

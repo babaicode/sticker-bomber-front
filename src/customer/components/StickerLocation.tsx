@@ -1,17 +1,32 @@
 import React, { useRef, useState, useEffect } from "react";
+import axios from "axios";
 import "../styles/StickerLocation.css";
 
 interface StickerLocationProps {
   stickerUrl: string;
+  stickerId: number;
 }
 
-const StickerLocation: React.FC<StickerLocationProps> = ({ stickerUrl }) => {
+const StickerLocation: React.FC<StickerLocationProps> = ({ stickerUrl, stickerId }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const stickerRef = useRef<HTMLImageElement>(null);
 
   const [coords, setCoords] = useState({ x: 50, y: 50 });
   const [dragging, setDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+
+  const sendCoordsToBackend = async () => {
+    try {
+      console.log("Coordinates sent:", coords);
+      await axios.post("", {
+        stickerId,
+        x: coords.x,
+        y: coords.y
+      });
+    } catch (error) {
+      console.error("Error sending coordinates:", error);
+    }
+  };
 
   const handleMouseDown = (e: React.MouseEvent<HTMLImageElement>) => {
     e.preventDefault();
@@ -73,6 +88,10 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ stickerUrl }) => {
         }}
         onMouseDown={handleMouseDown}
       />
+
+      <button className="save-button" onClick={sendCoordsToBackend}>
+        Save screen position
+      </button>
     </div>
   );
 };
