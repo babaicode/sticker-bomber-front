@@ -9,7 +9,7 @@ const StickerPicker = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 1440);
     const location = useLocation();
 
-    const { sticker } = location.state as {
+    const { streamerData, sticker } = location.state as {
         streamerData: StreamerData;
         sticker: Sticker;
     };
@@ -33,7 +33,7 @@ const StickerPicker = () => {
             </div>
 
             <div className="sticker-location">
-                <LocationBlock stickerUrl={sticker.url}/>
+                <LocationBlock sticker={sticker} streamerId={streamerData.streamerId}/>
             </div>
         </div>
     );

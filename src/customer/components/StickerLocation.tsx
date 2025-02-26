@@ -1,13 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/StickerLocation.css";
+import { StickerLocationProps } from "../interfaces/StickerLocationInterface";
+import { Environment } from "@/environment";
 
-interface StickerLocationProps {
-  stickerUrl: string;
-  stickerId: number;
-}
-
-const StickerLocation: React.FC<StickerLocationProps> = ({ stickerUrl, stickerId }) => {
+const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const stickerRef = useRef<HTMLImageElement>(null);
 
@@ -15,13 +12,17 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ stickerUrl, stickerId
   const [dragging, setDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
+  const API_URL = Environment.StickerBomberBackApiURL;
+
   const sendCoordsToBackend = async () => {
     try {
       console.log("Coordinates sent:", coords);
-      await axios.post("", {
-        stickerId,
-        x: coords.x,
-        y: coords.y
+      await axios.post(`${API_URL}/sticker-location/customer-send-sticker/`, {
+        stickerId: sticker.stickerId,
+        streamerId,
+        location_x: coords.x,
+        location_y: coords.y,
+        time: 5,
       });
     } catch (error) {
       console.error("Error sending coordinates:", error);
@@ -56,7 +57,7 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ stickerUrl, stickerId
     const stickerSize = sticker.getBoundingClientRect();
 
     let newX = e.clientX - rect.left - offset.x + stickerSize.width / 2;
-    let newY = e.clientY - rect.top - offset.y + stickerSize.height / 2;
+    let newY = rect.height - (e.clientY - rect.top - offset.y + stickerSize.height / 2);
 
     newX = Math.max(stickerSize.width / 2, Math.min(newX, rect.width - stickerSize.width / 2));
     newY = Math.max(stickerSize.height / 2, Math.min(newY, rect.height - stickerSize.height / 2));
@@ -77,13 +78,13 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ stickerUrl, stickerId
     <div className="sticker-location-container" ref={containerRef}>
       <img
         ref={stickerRef}
-        src={stickerUrl}
+        src={sticker.url}
         alt="Sticker"
         className="draggable-sticker"
         style={{
           left: `${coords.x}px`,
-          top: `${coords.y}px`,
-          transform: "translate(-50%, -50%)",
+          bottom: `${coords.y}px`,
+          transform: "translate(-50%, 50%)",
           position: "absolute",
         }}
         onMouseDown={handleMouseDown}
