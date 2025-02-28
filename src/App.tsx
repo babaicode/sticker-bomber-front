@@ -15,6 +15,7 @@ import AdminPage from './admin/page/AdminPage';
 import Customer from './customer/page/Customer';
 import StreamerList from './customer/page/StreamerList';
 import StickerPicker from './customer/page/StickerPicker';
+import CurrentStream from './current-stream/page/CurrentStream';
 
 const App: React.FC = () => {
   return (
@@ -35,6 +36,7 @@ const App: React.FC = () => {
               <Route path="streamer" element={<PrivateRoute element={<Streamer />} />} />
               <Route path="admin" element={<PrivateRoute element={<AdminPage />} />} />
               <Route path="wonna-be-streamer" element={<PrivateRoute element={<WonnaBeStreamer />} />} />
+              <Route path="/current-stream/:stream_url" element={<CurrentStream />} />
             </Routes>
           </div>
         </Router>
@@ -50,7 +52,9 @@ const ConditionalNavBar: React.FC = () => {
     pathnameArray.includes('login') ||
     pathnameArray.includes('customer') ||
     pathnameArray.includes('streamer-list') ||
-    pathnameArray.includes('sp');
+    pathnameArray.includes('sp') || 
+    pathnameArray.includes('current-stream');
+
 
   return !hideNavBar ? <NavBar /> : null;
 };
