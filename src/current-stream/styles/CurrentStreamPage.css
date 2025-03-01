@@ -1,19 +1,14 @@
-.overlay-container {
+.overlay-container-current-stream {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-    background: transparent;
     overflow: hidden;
 }
 
-.overlay-container-current-stream {
+.sticker-in-current-stream {
     position: absolute;
-    width: auto;
-    height: auto;
-    max-width: 200px;
-    max-height: 200px;
-    pointer-events: none;
+    transform: translate(0, 0);
 }

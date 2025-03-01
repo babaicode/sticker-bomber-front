@@ -38,7 +38,6 @@ const CurrentStream = () => {
                     style={{
                         left: `${sticker.locationX}px`,
                         bottom: `${sticker.locationY}px`,
-                        transform: "translate(-50%, -50%)",
                     }}
                 />
             ))}
