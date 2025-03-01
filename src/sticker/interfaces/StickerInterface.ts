@@ -10,3 +10,13 @@ export interface Sticker {
   stickerName: string;
   price: number;
 }
+
+export interface StickerForSettingLocation {
+  stickerId: number;
+  url: string;
+  stickerName: string;
+  time: number;
+  stickerWidth: number;
+  stikerHeight: number;
+  price: number;
+}

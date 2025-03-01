@@ -12,8 +12,8 @@
 }
 
 .draggable-sticker {
-  width: 100px;
-  height: 100px;
+  /* width: 100px; */
+  /* height: 100px; */
   cursor: grab;
 }
 

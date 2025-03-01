@@ -1,7 +1,7 @@
-import { Sticker } from "@/sticker/interfaces/StickerInterface";
+import { StickerForSettingLocation } from "@/sticker/interfaces/StickerInterface";
 
 export interface StickerLocationProps {
-  sticker: Sticker;
+  sticker: StickerForSettingLocation;
   streamerId: number;
   time: number;
 }

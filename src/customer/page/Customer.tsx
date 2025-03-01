@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { StreamerData } from '../interfaces/CustomerInterface';
 import { Environment } from '@/environment';
-import { Sticker } from '@/sticker/interfaces/StickerInterface';
+import { StickerForSettingLocation } from '@/sticker/interfaces/StickerInterface';
 import StickerCard from '@/sticker/components/StickerCard';
 import '../styles/CustomerPage.css';
 import CustomerNavbar from '../components/CustomerNavbar';
@@ -11,7 +11,7 @@ import CustomerNavbar from '../components/CustomerNavbar';
 const Customer: React.FC = () => {
   const { customerParam } = useParams<{ customerParam: string }>();
   const [streamerData, setStreamerData] = useState<StreamerData | null>(null);
-  const [stickers, setStickers] = useState<Sticker[]>([]);
+  const [stickers, setStickers] = useState<StickerForSettingLocation[]>([]);
   const API_URL = Environment.StickerBomberBackApiURL;
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1440);
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const Customer: React.FC = () => {
     }
   }, [customerParam, API_URL]);
 
-  const processStickers = (stickers: Sticker[]) => {
+  const processStickers = (stickers: StickerForSettingLocation[]) => {
     const processedStickers = stickers.map(sticker => ({
       ...sticker,
       url: processStickerUrl(sticker.url)
@@ -66,14 +66,13 @@ const Customer: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, [getStreamerData]);
 
-  const handleStickerClick = (sticker: Sticker) => {
+  const handleStickerClick = (sticker: StickerForSettingLocation) => {
     navigate(`/sp`, {
       state: {
         streamerData,
         sticker,
       },
     });
-    console.log('Sticker clicked');
   };
 
   return (

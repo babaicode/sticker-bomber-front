@@ -90,6 +90,8 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, 
           bottom: `${coords.y}px`,
           transform: "translate(-50%, 50%)",
           position: "absolute",
+          width: `${sticker.stickerWidth}px`,
+          height: `${sticker.stikerHeight}px`,
         }}
         onMouseDown={handleMouseDown}
       />

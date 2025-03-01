@@ -1,4 +1,4 @@
-import { Sticker } from "@/sticker/interfaces/StickerInterface";
+import { StickerForSettingLocation } from "@/sticker/interfaces/StickerInterface";
 import { useLocation } from "react-router-dom";
 import { StreamerData } from "../interfaces/CustomerInterface";
 import '../styles/StickerPicker.css';
@@ -13,7 +13,7 @@ const StickerPicker = () => {
 
     const { streamerData, sticker } = location.state as {
         streamerData: StreamerData;
-        sticker: Sticker;
+        sticker: StickerForSettingLocation;
     };
 
     useEffect(() => {
