@@ -11,7 +11,7 @@ const CurrentStream = () => {
 
     useEffect(() => {
         if (!stream_url) return;
-
+    
         const fetchStickers = async () => {
             try {
                 const response = await axios.get(`${Environment.StickerBomberBackApiURL}/current-stream/stickers-on-stream/${stream_url}`);
@@ -20,12 +20,14 @@ const CurrentStream = () => {
                 console.error("error while loading stickers", error);
             }
         };
-
+    
         fetchStickers();
-        const interval = setInterval(fetchStickers, 3000);
-
+    
+        const interval = setInterval(fetchStickers, 1000);
+    
         return () => clearInterval(interval);
     }, [stream_url]);
+    
 
     return (
         <div className="overlay-container-current-stream">
