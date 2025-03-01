@@ -1,9 +1,12 @@
 import { Environment } from "@/environment";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import '../styles/CurrentStreamPage.css';
 import { CurrentStreamDataDto } from "../interfaces/StickerLocationInterface";
 import { useParams } from "react-router-dom";
+import '../styles/CurrentStreamPage.css';
+
+const SCREEN_WIDTH = 1920;
+const SCREEN_HEIGHT = 1080;
 
 const CurrentStream = () => {
     const { stream_url } = useParams<{ stream_url: string }>();  
@@ -24,11 +27,10 @@ const CurrentStream = () => {
         fetchStickers();
     
         const interval = setInterval(fetchStickers, 1000);
-    
+
         return () => clearInterval(interval);
     }, [stream_url]);
     
-
     return (
         <div className="overlay-container-current-stream">
             {currentStreamData?.stickers.map((sticker) => (
@@ -39,7 +41,7 @@ const CurrentStream = () => {
                     className="sticker-in-current-stream"
                     style={{
                         left: `${sticker.locationX}px`,
-                        bottom: `${sticker.locationY}px`,
+                        top: `${SCREEN_HEIGHT - sticker.locationY}px`, // Инвертируем Y
                     }}
                 />
             ))}

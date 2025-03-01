@@ -1,20 +1,16 @@
 .sticker-location-container {
   position: relative;
-  width: 80vw;
-  aspect-ratio: 16 / 9;
-  border: 2px solid #ccc;
-  margin: 0 auto;
+  width: 1920px;
+  height: 1080px;
   background: #f2f2f2;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 2px solid black;
 }
 
 .draggable-sticker {
-  /* width: 100px; */
-  /* height: 100px; */
   cursor: grab;
+  position: absolute;
+  transform: translate(0, -100%);
 }
 
 .draggable-sticker:active {

@@ -14,13 +14,22 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, 
 
   const API_URL = Environment.StickerBomberBackApiURL;
 
+  useEffect(() => {
+    console.log("Initial Coordinates:", coords);
+  }, []);
+
   const sendCoordsToBackend = async () => {
     if (time === 0) {
       alert("Please select a time first");
       return;
     }
+
+    if (isNaN(coords.x) || isNaN(coords.y)) {
+      console.error("❌ ERROR: Invalid coordinates before sending!", coords);
+      return;
+    }
+
     try {
-      console.log("Coordinates sent:", coords, time);
       await axios.post(`${API_URL}/sticker-location/customer-send-sticker/`, {
         stickerId: sticker.stickerId,
         streamerId,
@@ -29,7 +38,7 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, 
         time: time,
       });
     } catch (error) {
-      console.error("Error sending coordinates:", error);
+      console.error("❌ Error sending coordinates:", error);
     }
   };
 
@@ -40,9 +49,11 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, 
     const sticker = stickerRef.current;
     if (!sticker) return;
 
+    const stickerRect = sticker.getBoundingClientRect();
+
     setOffset({
-      x: e.clientX - sticker.getBoundingClientRect().left,
-      y: e.clientY - sticker.getBoundingClientRect().top,
+      x: e.clientX - stickerRect.left,
+      y: e.clientY - stickerRect.top,
     });
   };
 
@@ -62,6 +73,11 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, 
 
     let newX = e.clientX - rect.left - offset.x + stickerSize.width / 2;
     let newY = rect.height - (e.clientY - rect.top - offset.y + stickerSize.height / 2);
+
+    if (isNaN(newX) || isNaN(newY)) {
+      console.error("❌ ERROR: NaN detected in handleMouseMove!", { newX, newY });
+      return;
+    }
 
     newX = Math.max(stickerSize.width / 2, Math.min(newX, rect.width - stickerSize.width / 2));
     newY = Math.max(stickerSize.height / 2, Math.min(newY, rect.height - stickerSize.height / 2));
@@ -91,7 +107,7 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, 
           transform: "translate(-50%, 50%)",
           position: "absolute",
           width: `${sticker.stickerWidth}px`,
-          height: `${sticker.stikerHeight}px`,
+          height: `${sticker.stickerHeight}px`,
         }}
         onMouseDown={handleMouseDown}
       />

@@ -17,6 +17,6 @@ export interface StickerForSettingLocation {
   stickerName: string;
   time: number;
   stickerWidth: number;
-  stikerHeight: number;
+  stickerHeight: number;
   price: number;
 }

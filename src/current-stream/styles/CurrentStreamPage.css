@@ -1,14 +1,25 @@
+/* Контейнер фиксированного размера */
 .overlay-container-current-stream {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 1920px;
+    height: 1080px;
     pointer-events: none;
     overflow: hidden;
+    background-color: transparent; /* Чтобы фон был прозрачный */
 }
 
+/* Стикеры */
 .sticker-in-current-stream {
     position: absolute;
-    transform: translate(0, 0);
+    transform: translate(0, -100%); /* Поднимаем стикер вверх */
+}
+
+/* Масштабирование при изменении размера окна (если нужно) */
+@media screen and (max-width: 1920px), screen and (max-height: 1080px) {
+    .overlay-container-current-stream {
+        transform: scale(0.8);
+        transform-origin: bottom left;
+    }
 }
