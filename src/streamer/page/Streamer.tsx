@@ -6,6 +6,7 @@ import { AdminList } from '../components/AdminList';
 import '../styles/StreamerPage.css';
 import StickerListComponent from '@/sticker/components/StickerListComponent';
 import { BalanceComponent } from '../components/Balance';
+import StreamLink from '../components/StreamLink';
 
 const Streamer: React.FC = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const Streamer: React.FC = () => {
   return (
     <div className='streamer-container'>
       <div className='buttons'>
+        <StreamLink />
         <AdminLink />
         <UserLink />
       </div>
