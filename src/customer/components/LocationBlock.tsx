@@ -38,8 +38,6 @@ const LocationBlock: React.FC<StickerLocationProps> = ({ sticker, streamerId, ti
         )
       ) : (
         <div className="map sidebar">
-          <p>Map for PC</p>
-
           <StickerLocation sticker={sticker} streamerId={streamerId} time={time}/>
         </div>
       )}
