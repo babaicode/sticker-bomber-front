@@ -5,14 +5,30 @@ import { StickerLocationProps } from "../interfaces/StickerLocationInterface";
 import { Environment } from "@/environment";
 
 const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, time }) => {
+  const [size, setSize] = useState({ width: 0, height: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
   const stickerRef = useRef<HTMLImageElement>(null);
 
-  const [coords, setCoords] = useState({ x: 50, y: 50 });
+  const [coords, setCoords] = useState({ x: size.width / 2, y: size.height / 2 });
   const [dragging, setDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
   const API_URL = Environment.StickerBomberBackApiURL;
+
+  useEffect(() => {
+    if (containerRef.current) {
+      setSize({
+        width: containerRef.current.offsetWidth,
+        height: containerRef.current.offsetHeight,
+      });
+    }
+  }, []);
+  
+  useEffect(() => {
+    if (size.width > 0 && size.height > 0) {
+      setCoords({ x: size.width / 2, y: size.height / 2 });
+    }
+  }, [size]);
 
   useEffect(() => {
     console.log("Initial Coordinates:", coords);
