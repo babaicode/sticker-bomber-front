@@ -5,11 +5,19 @@ import '../styles/Auth.css';
 import axios from 'axios';
 import { getAuthorAvatar, login } from '../service/authService';
 import { useAlert } from '@/alert/AlertContext';
+import { useTranslation } from 'react-i18next';
+
+const languageOptions = [
+  { code: "en", flag: "🇺🇸" },
+  { code: "ru", flag: "🇷🇺" }
+];
 
 const Login: React.FC = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const { showAlert } = useAlert();
+  const { t, i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
   const navigate = useNavigate();
   const handleSubmit = async (e: React.FormEvent) => {
@@ -47,6 +55,16 @@ const Login: React.FC = () => {
     setPassword('');
   }
 
+  const changeLanguage = () => {
+    const nextLang =
+      languageOptions[
+        (languageOptions.findIndex((lang) => lang.code === currentLanguage) + 1) %
+          languageOptions.length
+      ];
+    i18n.changeLanguage(nextLang.code);
+    setCurrentLanguage(nextLang.code);
+  };
+
   return (
     <div className="auth-container">
       <form onSubmit={handleSubmit} className="auth-form">
@@ -66,13 +84,16 @@ const Login: React.FC = () => {
           <input
             type="password"
             id="password"
-            value={password} 
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div className='buttons-box'>
-          <button className="register-button" type="submit">Login</button>
-          <Link className='go-to-login' to="/register">Do you need to register?</Link>
+          <button className="register-button" type="submit">{t("login")}</button>
+          <Link className='go-to-login' to="/register">{t("do-you-need-to-register")}</Link>
+          <button className="lang-button" onClick={changeLanguage}>
+        {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
+      </button>
         </div>
       </form>
     </div>

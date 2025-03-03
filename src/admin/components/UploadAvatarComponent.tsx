@@ -3,10 +3,12 @@ import '../styles/UploadAvatarComponent.css';
 import axios from 'axios';
 import { Environment } from '@/environment';
 import { useAlert } from '@/alert/AlertContext';
+import { useTranslation } from 'react-i18next';
 
 const UploadAvatarComponent: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const { showAlert } = useAlert();
+  const { t } = useTranslation();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -47,7 +49,7 @@ const UploadAvatarComponent: React.FC = () => {
 
   return (
     <div className="upload-container">
-      <h2>Upload Avatar</h2>
+      <h2>{t("upload-avatar")}</h2>
       <input type="file" accept=".jpeg, .jpg, .png" onChange={handleFileChange} />
       {selectedFile && <p className="file-name">Selected File: {selectedFile.name}</p>}
       <button className="upload-button" onClick={handleUpload}>
