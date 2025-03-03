@@ -30,10 +30,6 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, 
     }
   }, [size]);
 
-  useEffect(() => {
-    console.log("Initial Coordinates:", coords);
-  }, []);
-
   const sendCoordsToBackend = async () => {
     if (time === 0) {
       alert("Please select a time first");
@@ -45,12 +41,16 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, 
       return;
     }
 
+    
+    const xByPercent = (coords.x * 100) / size.width;
+    const yByPercent = (coords.y * 100) / size.height;
+
     try {
       await axios.post(`${API_URL}/sticker-location/customer-send-sticker/`, {
         stickerId: sticker.stickerId,
         streamerId,
-        location_x: coords.x,
-        location_y: coords.y,
+        location_x: xByPercent,
+        location_y: yByPercent,
         time: time,
       });
     } catch (error) {
