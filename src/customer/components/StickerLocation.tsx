@@ -3,11 +3,13 @@ import axios from "axios";
 import "../styles/StickerLocation.css";
 import { StickerLocationProps } from "../interfaces/StickerLocationInterface";
 import { Environment } from "@/environment";
+import { useTranslation } from "react-i18next";
 
 const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, time }) => {
   const [size, setSize] = useState({ width: 0, height: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
   const stickerRef = useRef<HTMLImageElement>(null);
+  const { t } = useTranslation();
 
   const [coords, setCoords] = useState({ x: size.width / 2, y: size.height / 2 });
   const [dragging, setDragging] = useState(false);
@@ -129,7 +131,7 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, 
       />
 
       <button className="save-button" onClick={sendCoordsToBackend}>
-        Save screen position
+        {t("save-screen-position")}
       </button>
     </div>
   );

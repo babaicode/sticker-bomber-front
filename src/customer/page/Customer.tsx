@@ -12,7 +12,9 @@ const Customer: React.FC = () => {
   const { customerParam } = useParams<{ customerParam: string }>();
   const [streamerData, setStreamerData] = useState<StreamerData | null>(null);
   const [stickers, setStickers] = useState<StickerForSettingLocation[]>([]);
+
   const API_URL = Environment.StickerBomberBackApiURL;
+
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1440);
   const navigate = useNavigate();
 

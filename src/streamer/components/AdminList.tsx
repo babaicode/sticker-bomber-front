@@ -5,25 +5,17 @@ import { useAlert } from "@/alert/AlertContext";
 import { getAuthorAvatar } from "@/auth/service/authService";
 import '../styles/AdminListComponent.css';
 import { AdminCard } from "./AdminCard";
-
-export interface AdminList {
-  adminId: number;
-  userId: number;
-  userName: string;
-}
-
-export interface Admin {
-  adminId: number;
-  userId: number;
-  userName: string;
-  avatarUrl?: string;
-}
+import { Admin } from "../interfaces/AdminsInterfaces";
+import { useTranslation } from "react-i18next";
 
 export const AdminList = () => {
-  const { showAlert } = useAlert();
   const [admins, setAdmins] = useState<Admin[]>([]);
-  const API_URL = Environment.StickerBomberBackApiURL;
   const streamerId = localStorage.getItem("streamerId");
+
+  const API_URL = Environment.StickerBomberBackApiURL;
+
+  const { showAlert } = useAlert();
+  const { t } = useTranslation();
 
   const fetchAdmins = useCallback(async () => {
     if (!streamerId) {
@@ -79,7 +71,7 @@ export const AdminList = () => {
           />
         ))
       ) : (
-        <p>No admins found</p>
+        <p>{t("no-admins-found")}</p>
       )}
     </div>
   );

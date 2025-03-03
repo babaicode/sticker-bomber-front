@@ -2,10 +2,14 @@ import { useAlert } from '@/alert/AlertContext';
 import { Environment } from '@/environment';
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const BalanceComponent: React.FC = () => {
   const streamerId = localStorage.getItem('streamerId');
+
   const API_URL = Environment.StickerBomberBackApiURL;
+
+  const { t } = useTranslation();
 
   const { showAlert } = useAlert();
   const [streamerBalance, setStreamerBalance] = useState<number>();
@@ -35,9 +39,9 @@ export const BalanceComponent: React.FC = () => {
 
   return (
     <div>
-      <h1>Streamer balance</h1>
+      <h1>{t("streamer-balance")}</h1>
       <p>
-        Your balance is: {streamerBalance}
+        {t("your-balance-is:")} {streamerBalance}
       </p>
     </div>
   );

@@ -1,4 +1,7 @@
 {
+  "upload": "Upload",
+  "select-file:": "Selected File:",
+
   "streamer": "Streamer",
   "home": "Home",
   "admin": "Admin",
@@ -7,5 +10,47 @@
   "upload-avatar": "Upload avatar",
 
   "login": "Login",
-  "do-you-need-to-register": "Do you need to register?"
+  "do-you-need-to-register": "Do you need to register?",
+
+  "streamer-list": "Streamer list",
+
+  "save-screen-position": "Save screen position",
+
+  "select-duration-seconds": "Select Duration (seconds):",
+
+  "sticker:": "Sticker:",
+  "price-per-second:": "Price per second:",
+
+  "create-sticker": "Create sticker",
+
+  "show-admin-rules": "Show Admin Rules",
+
+  "admin-link": "Admin Link",
+  "loading...": "Loading...",
+  "generate-new-link": "Generate new link",
+  "show-admin-link": "Show Admin Link",
+
+  "no-admins-found": "No admins found",
+
+  "updating...": "Updating...",
+
+  "streamer-balance": "Streamer balance",
+  "your-balance-is:": "Your balance is:",
+
+  "drag-and-drop-or-click-to-upload": "Drag & Drop or Click to Upload",
+  "sticker-name": "Sticker name",
+  "price-per-second": "Price per second",
+  "height": "height",
+  "width": "width",
+  "create": "Create",
+
+  "stream-link": "Stream Link",
+  "show-stream-link": "Show Stream Link",
+
+  "user-link": "User Link",
+  "show-user-link": "Show User Link",
+
+  "wonna-be-a-streamer?": "Wonna be a streamer?",
+  "you-are-not-a-streamer-yet....": "You are not a streamer yet. If you want to be a streamer, please press the button above.",
+  "become-a-streamer": "Become a streamer"
 }

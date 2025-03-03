@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../styles/CustomerNavbar.css';
+import { useTranslation } from "react-i18next";
+
+const languageOptions = [
+    { code: "en", flag: "🇺🇸" },
+    { code: "ru", flag: "🇷🇺" }
+  ];
 
 const CustomerNavbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { t, i18n } = useTranslation();
+    const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
     useEffect(() => {
         const checkLogin = () => {
@@ -18,10 +26,23 @@ const CustomerNavbar = () => {
         checkLogin();
     }, []);
 
+    const changeLanguage = () => {
+        const nextLang =
+          languageOptions[
+            (languageOptions.findIndex((lang) => lang.code === currentLanguage) + 1) %
+              languageOptions.length
+          ];
+        i18n.changeLanguage(nextLang.code);
+        setCurrentLanguage(nextLang.code);
+    };
+
     return (
         <nav className="navbar">
-            {!isLoggedIn && <Link to="/login" className="nav-link">Login</Link>}
-            {isLoggedIn && <Link to="/streamer-list" className="nav-link">StreamerList</Link>}
+            {!isLoggedIn && <Link to="/login" className="nav-link">{t("login")}</Link>}
+            {isLoggedIn && <Link to="/streamer-list" className="nav-link">{t("streamer-list")}</Link>}
+            <button className="lang-button" onClick={changeLanguage}>
+                {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
+            </button>
         </nav>
     );
 }

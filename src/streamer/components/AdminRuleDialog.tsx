@@ -3,6 +3,7 @@ import "../styles/AdminRuleDialog.css";
 import { AdminRuleDialogProps } from "../interfaces/RulesInterface";
 import axios from "axios";
 import { Environment } from "@/environment";
+import { useTranslation } from "react-i18next";
 
 export const AdminRuleDialog: FC<AdminRuleDialogProps> = ({
   visible,
@@ -14,7 +15,10 @@ export const AdminRuleDialog: FC<AdminRuleDialogProps> = ({
 }) => {
   const [ruleStates, setRuleStates] = useState<{ [key: number]: boolean }>({});
   const [isUpdating, setIsUpdating] = useState(false);
+
   const API_URL = Environment.StickerBomberBackApiURL;
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (allRules && rules) {
@@ -59,7 +63,7 @@ export const AdminRuleDialog: FC<AdminRuleDialogProps> = ({
           </button>
         </div>
         <div className="dialog-box">
-          {isUpdating && <p className="loading-text">Updating...</p>}
+          {isUpdating && <p className="loading-text">{t("updating...")}</p>}
           <ul className="rule-list">
             {allRules?.map((rule) => (
               <li key={rule.id} className="rule-item">

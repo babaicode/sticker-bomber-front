@@ -13,10 +13,10 @@ i18n
       en: { translation: en },
       ru: { translation: ru }
     },
-    fallbackLng: "en", // Если язык не найден, используем английский
+    fallbackLng: "en",
     detection: {
-      order: ["localStorage", "navigator"], // Определение языка
-      caches: ["localStorage"] // Кэшируем в локальном хранилище
+      order: ["localStorage", "navigator"],
+      caches: ["localStorage"]
     },
     interpolation: {
       escapeValue: false

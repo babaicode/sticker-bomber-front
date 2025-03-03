@@ -1,11 +1,56 @@
 {
+  "upload": "загрузить",
+  "select-file:": "выберите файл",
+  
   "streamer": "Стример",
   "home": "Главная",
   "admin": "Админ",
   "logout": "Выйти",
-
+  
   "upload-avatar": "Загрузить аватар",
-
+  
   "login": "Войти",
-  "do-you-need-to-register": "Хотите зарегистрироваться?"
+  "do-you-need-to-register": "Хотите зарегистрироваться?",
+
+  "streamer-list": "Список стримеров",
+
+  "save-screen-position": "Сохранить позицию",
+
+  "select-duration-seconds": "На как долго (в секундах):",
+
+  "sticker:": "Стикер:",
+  "price-per-second:": "Цена в секунду:",
+
+  "create-sticker": "Создать стикер",
+
+  "show-admin-rules": "Показать правила админа",
+
+  "admin-link": "Админская ссылка",
+  "loading...": "Загрузка...",
+  "generate-new-link": "Сгенерировать новую ссылку",
+  "show-admin-link": "Показать админскую ссылку",
+
+  "no-admins-found": "Админы не найдены",
+
+  "updating...": "Обновление...",
+
+  "streamer-balance": "Баланс стримера",
+  "your-balance-is:": "Ваш баланс:",
+
+  "drag-and-drop-or-click-to-upload": "Перетащите или нажмите чтобы загрузить",
+  "sticker-name": "Имя стикера",
+  "price-per-second": "Цена в секунду",
+  "height": "высота",
+  "width": "шииирина",
+  "create": "Создать",
+
+  "stream-link": "Ссылка на стрим",
+  "show-stream-link": "Показать ссылка на стрим",
+
+  "user-link": "Пользовательская ссылка",
+  "show-user-link": "Показать пользовательскую ссылку",
+
+  "wonna-be-a-streamer?": "Хотите стать стримером?",
+  "you-are-not-a-streamer-yet....": "Вы еще не стример. Если хотите стать стримером, пожалуйста нажмите на кнопку выше.",
+  "become-a-streamer": "Стать стримером"
 }

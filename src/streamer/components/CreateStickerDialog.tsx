@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import axios from "axios";
 import { CreateStickerDialogProps } from "../interfaces/CreateStickerDialogProps";
 import "../styles/CreateStickerDialog.css";
+import { useTranslation } from "react-i18next";
 
 export const CreateStickerDialog: FC<CreateStickerDialogProps> = ({
   visible,
@@ -11,9 +12,12 @@ export const CreateStickerDialog: FC<CreateStickerDialogProps> = ({
   const [preview, setPreview] = useState<string | null>(null);
   const [price, setPrice] = useState<string>("");
   const [stickerName, setStickerName] = useState<string>("");
-  const [height, setHeight] = useState<number>(0);
-  const [width, setWidth] = useState<number>(0);
+  const [height, setHeight] = useState<number | null>(null);
+  const [width, setWidth] = useState<number | null>(null);
+
   const userId = localStorage.getItem("userId");
+
+  const { t } = useTranslation();
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -70,7 +74,7 @@ export const CreateStickerDialog: FC<CreateStickerDialogProps> = ({
     <div className="dialog-overlay">
       <div className="dialog-container">
         <div className="dialog-header">
-          <h3>Create sticker</h3>
+          <h3>{t("create-sticker")}</h3>
           <button className="dialog-close-button" onClick={onClose}>
             &times;
           </button>
@@ -85,7 +89,7 @@ export const CreateStickerDialog: FC<CreateStickerDialogProps> = ({
           {preview ? (
             <img src={preview} alt="Preview" className="preview-image" />
           ) : (
-            <p>Drag & Drop or Click to Upload</p>
+            <p>{t("drag-and-drop-or-click-to-upload")}</p>
           )}
           <input
             id="fileInput"
@@ -98,30 +102,30 @@ export const CreateStickerDialog: FC<CreateStickerDialogProps> = ({
         <div className="dialog-body">
           <input
             type="text"
-            placeholder="Sticker name"
+            placeholder={t("sticker-name")}
             value={stickerName}
             onChange={(e) => setStickerName(e.target.value)}
           />
           <input
             type="number"
             step="0.01"
-            placeholder="Price per second"
+            placeholder={t("price-per-second")}
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
           <input
             type="number"
-            placeholder="Height"
-            value={height}
-            onChange={(e) => setHeight(parseInt(e.target.value))}
+            placeholder={t("width")}
+            value={width ?? ""}
+            onChange={(e) => setWidth(parseInt(e.target.value))}
           />
           <input
             type="number"
-            placeholder="Width"
-            value={width}
-            onChange={(e) => setWidth(parseInt(e.target.value))}
+            placeholder={t("height")}
+            value={height ?? ""}
+            onChange={(e) => setHeight(parseInt(e.target.value))}
           />
-          <button onClick={handleSubmit}>Create</button>
+          <button onClick={handleSubmit}>{t("create")}</button>
         </div>
       </div>
     </div>

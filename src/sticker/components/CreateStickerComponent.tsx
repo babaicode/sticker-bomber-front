@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import '../styles/CreateStickerComponent.css';
 import { CreateStickerDialog } from '@/streamer/components/CreateStickerDialog';
+import { useTranslation } from 'react-i18next';
 
 const CreateStickerComponent: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { t } = useTranslation();
 
   const openDialog = () => setIsDialogOpen(true);
   const closeDialog = () => setIsDialogOpen(false);
@@ -16,7 +18,7 @@ const CreateStickerComponent: React.FC = () => {
       >
         <div className="plus-sign"></div>
 
-        <span className="titile">Create sticker</span>
+        <span className="titile">{t("create-sticker")}</span>
       </div>
       <CreateStickerDialog
               visible={isDialogOpen}

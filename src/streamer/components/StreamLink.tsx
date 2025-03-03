@@ -3,12 +3,14 @@ import axios from 'axios';
 import { Environment } from '@/environment';
 import { useCallback, useEffect, useState } from "react";
 import '../styles/StreamLink.css';
+import { useTranslation } from "react-i18next";
 
 const StreamLink = () => {
     const API_URL = Environment.StickerBomberBackApiURL;
     const streamerId = localStorage.getItem('streamerId');
-
     const { showAlert } = useAlert();
+    const { t } = useTranslation();
+
     const [streamLink, setStreamLink] = useState<string | null>(null);
     const [shouldShow, setShouldShow] = useState(false);
 
@@ -49,11 +51,11 @@ const StreamLink = () => {
         <div>
           { shouldShow ? (
           <div>
-            <h3 style={{ textAlign: "center" }}>Stream Link</h3>
+            <h3 style={{ textAlign: "center" }}>{t("stream-link")}</h3>
             <div className="stream-link-container">
-              {streamLink ? <p>{streamLink}</p> : <p>Loading...</p>}
+              {streamLink ? <p>{streamLink}</p> : <p>{t("loading...")}</p>}
               <div className="button-stream-link-box">
-                <button className="button-stream-link small" role="button" onClick={generateStreamLink}>Generate new link</button>
+                <button className="button-stream-link small" role="button" onClick={generateStreamLink}>{t("generate-new-link")}</button>
                 <button className="button-stream-link mega-small" role="button" onClick={() => setShouldShow(false)}>x</button>
               </div>
             </div>
@@ -61,7 +63,7 @@ const StreamLink = () => {
           ) : (
             <div className="show-stream-link-button-container">
               <button className="button-stream-link" role="button" onClick={() => setShouldShow(true)}>
-                Show Stream Link
+                {t("show-stream-link")}
               </button>
             </div> 
           )}

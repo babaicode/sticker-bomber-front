@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface StickerLocationTimeProps {
   setTime: (time: number) => void;
@@ -6,6 +7,7 @@ interface StickerLocationTimeProps {
 
 const StickerLocationTime: React.FC<StickerLocationTimeProps> = ({ setTime }) => {
   const [selectedTime, setSelectedTime] = useState<number>(2);
+  const { t } = useTranslation();
 
   const handleTimeSelect = (time: number) => {
     setSelectedTime(time);
@@ -14,7 +16,7 @@ const StickerLocationTime: React.FC<StickerLocationTimeProps> = ({ setTime }) =>
 
   return (
     <div className="sticker-time-container">
-      <h3>Select Duration (seconds):</h3>
+      <h3>{t("select-duration-seconds")}</h3>
       <div className="time-options">
         {[2, 5, 10].map((time) => (
           <button 

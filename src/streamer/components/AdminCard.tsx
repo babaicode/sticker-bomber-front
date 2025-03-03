@@ -5,12 +5,7 @@ import axios from "axios";
 import { AdminRuleInterface, AllRulesInterface } from "../interfaces/RulesInterface";
 import { Environment } from "@/environment";
 import { useAlert } from "@/alert/AlertContext";
-
-export interface AdminCardProps {
-  userName: string;
-  avatarUrl?: string;
-  adminId: number;
-}
+import { AdminCardProps } from "../interfaces/AdminsInterfaces";
 
 export const AdminCard: React.FC<AdminCardProps> = ({ userName, avatarUrl, adminId }) => {
   const API_URL = Environment.StickerBomberBackApiURL;

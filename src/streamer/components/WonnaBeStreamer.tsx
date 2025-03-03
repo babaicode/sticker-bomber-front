@@ -2,11 +2,13 @@ import { useAlert } from '@/alert/AlertContext';
 import { Environment } from '@/environment';
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 export const WonnaBeStreamer: React.FC = () => {
   const userId = localStorage.getItem('userId');
   const API_URL = Environment.StickerBomberBackApiURL;
+  const { t } = useTranslation();
 
   const { showAlert } = useAlert();
   const [isStreamer, setIsStreamer] = useState<boolean>(false);
@@ -54,13 +56,13 @@ export const WonnaBeStreamer: React.FC = () => {
 
   return (
     <div>
-      <h1>Wonna be a streamer?</h1>
+      <h1>{t("wonna-be-a-streamer?")}</h1>
       <p>
-        You are not a streamer yet. If you want to be a streamer, please press the button above.
+        {t("you-are-not-a-streamer-yet....")}
       </p>
       <button
         onClick={becomeAStreamer}  
-      >Become a streamer</button>
+      >{t("become-a-streamer")}</button>
     </div>
   );
 };
