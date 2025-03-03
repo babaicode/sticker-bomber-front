@@ -1,0 +1,11 @@
+{
+  "streamer": "Streamer",
+  "home": "Home",
+  "admin": "Admin",
+  "logout": "Logout",
+
+  "upload-avatar": "Upload avatar",
+
+  "login": "Login",
+  "do-you-need-to-register": "Do you need to register?"
+}
