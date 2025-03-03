@@ -41,7 +41,7 @@ export const BalanceComponent: React.FC = () => {
     <div>
       <h1>{t("streamer-balance")}</h1>
       <p>
-        {t("your-balance-is:")} {streamerBalance}
+        {t("your-balance-is")}: {streamerBalance}
       </p>
     </div>
   );

@@ -51,7 +51,7 @@ const UploadAvatarComponent: React.FC = () => {
     <div className="upload-container">
       <h2>{t("upload-avatar")}</h2>
       <input type="file" accept=".jpeg, .jpg, .png" onChange={handleFileChange} />
-      {selectedFile && <p className="file-name">{t("select-file:")} {selectedFile.name}</p>}
+      {selectedFile && <p className="file-name">{t("select-file")}: {selectedFile.name}</p>}
       <button className="upload-button" onClick={handleUpload}>
         {t("upload")}
       </button>

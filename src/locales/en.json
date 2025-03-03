@@ -1,6 +1,6 @@
 {
   "upload": "Upload",
-  "select-file:": "Selected File:",
+  "select-file": "Selected File",
 
   "streamer": "Streamer",
   "home": "Home",
@@ -16,10 +16,7 @@
 
   "save-screen-position": "Save screen position",
 
-  "select-duration-seconds": "Select Duration (seconds):",
-
-  "sticker:": "Sticker:",
-  "price-per-second:": "Price per second:",
+  "select-duration-seconds": "Select Duration (seconds)",
 
   "create-sticker": "Create sticker",
 
@@ -35,7 +32,7 @@
   "updating...": "Updating...",
 
   "streamer-balance": "Streamer balance",
-  "your-balance-is:": "Your balance is:",
+  "your-balance-is": "Your balance is",
 
   "drag-and-drop-or-click-to-upload": "Drag & Drop or Click to Upload",
   "sticker-name": "Sticker name",

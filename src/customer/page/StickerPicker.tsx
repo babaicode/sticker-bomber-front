@@ -32,7 +32,7 @@ const StickerPicker = () => {
                 <img className="sticker" src={sticker.url} alt={sticker.stickerName} />
                 <div className="sticker-info">
                     <h3>{t("sticker:")} {sticker.stickerName}</h3>
-                    <h3>{t("price-per-second:")} {sticker.price}</h3>
+                    <h3>{t("price-per-second")}: {sticker.price}</h3>
                 </div>
                 <StickerLocationTime setTime={setTime} />
             </div>

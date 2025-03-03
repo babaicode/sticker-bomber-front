@@ -1,6 +1,6 @@
 {
   "upload": "загрузить",
-  "select-file:": "выберите файл",
+  "select-file": "выберите файл",
   
   "streamer": "Стример",
   "home": "Главная",
@@ -16,10 +16,9 @@
 
   "save-screen-position": "Сохранить позицию",
 
-  "select-duration-seconds": "На как долго (в секундах):",
+  "select-duration-seconds": "На как долго (в секундах)",
 
-  "sticker:": "Стикер:",
-  "price-per-second:": "Цена в секунду:",
+  "sticker": "Стикер",
 
   "create-sticker": "Создать стикер",
 
@@ -35,7 +34,7 @@
   "updating...": "Обновление...",
 
   "streamer-balance": "Баланс стримера",
-  "your-balance-is:": "Ваш баланс:",
+  "your-balance-is": "Ваш баланс",
 
   "drag-and-drop-or-click-to-upload": "Перетащите или нажмите чтобы загрузить",
   "sticker-name": "Имя стикера",
