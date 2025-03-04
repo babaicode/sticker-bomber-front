@@ -1,7 +1,7 @@
 import { StickerForSettingLocation } from "@/sticker/interfaces/StickerInterface";
 import { useLocation } from "react-router-dom";
 import { StreamerData } from "../interfaces/CustomerInterface";
-import '../styles/StickerPicker.css';
+import '../styles/StickerPicker.module.css';
 import { useState, useEffect } from "react";
 import LocationBlock from "../components/LocationBlock";
 import StickerLocationTime from "../components/StickerLocationTime";

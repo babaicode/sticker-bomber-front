@@ -2,7 +2,7 @@ import { useAlert } from "@/alert/AlertContext";
 import axios from 'axios';
 import { Environment } from '@/environment';
 import { useCallback, useEffect, useState } from "react";
-import '../styles/AdminLinkComponent.css';
+import '../styles/AdminLinkComponent.module.css';
 import { useTranslation } from "react-i18next";
 
 export const AdminLink = () => {

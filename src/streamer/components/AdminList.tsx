@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Environment } from '@/environment';
 import { useAlert } from "@/alert/AlertContext";
 import { getAuthorAvatar } from "@/auth/service/authService";
-import '../styles/AdminListComponent.css';
+import '../styles/AdminListComponent.module.css';
 import { AdminCard } from "./AdminCard";
 import { Admin } from "../interfaces/AdminsInterfaces";
 import { useTranslation } from "react-i18next";

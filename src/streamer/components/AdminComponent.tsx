@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { AdminComponentProps } from "../interfaces/StreamerInterface";
-import '../styles/AdminComponent.css';
+import '../styles/AdminComponent.module.css';
 import { Environment } from "@/environment";
 import { useAlert } from "@/alert/AlertContext";
 import axios from "axios";

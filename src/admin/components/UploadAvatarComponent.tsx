@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/UploadAvatarComponent.css';
+import styles from '../styles/UploadAvatarComponent.module.css';
 import axios from 'axios';
 import { Environment } from '@/environment';
 import { useAlert } from '@/alert/AlertContext';
@@ -48,11 +48,11 @@ const UploadAvatarComponent: React.FC = () => {
   };
 
   return (
-    <div className="upload-container">
+    <div className={styles.uploadContainer}>
       <h2>{t("upload-avatar")}</h2>
       <input type="file" accept=".jpeg, .jpg, .png" onChange={handleFileChange} />
-      {selectedFile && <p className="file-name">{t("select-file")}: {selectedFile.name}</p>}
-      <button className="upload-button" onClick={handleUpload}>
+      {selectedFile && <p className={styles.fileName}>{t("select-file")}: {selectedFile.name}</p>}
+      <button className={styles.uploadButton} onClick={handleUpload}>
         {t("upload")}
       </button>
     </div>

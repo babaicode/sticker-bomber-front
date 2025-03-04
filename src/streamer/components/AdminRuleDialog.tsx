@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import "../styles/AdminRuleDialog.css";
+import "../styles/AdminRuleDialog.module.css";
 import { AdminRuleDialogProps } from "../interfaces/RulesInterface";
 import axios from "axios";
 import { Environment } from "@/environment";

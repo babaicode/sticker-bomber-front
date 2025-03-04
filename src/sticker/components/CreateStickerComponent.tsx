@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/CreateStickerComponent.css';
+import '../styles/CreateStickerComponent.module.css';
 import { CreateStickerDialog } from '@/streamer/components/CreateStickerDialog';
 import { useTranslation } from 'react-i18next';
 

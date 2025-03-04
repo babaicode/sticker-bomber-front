@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import '../styles/StickerListComponent.css';
+import '../styles/StickerListComponent.module.css';
 import { useAlert } from '@/alert/AlertContext';
 import axios from 'axios';
 import { Environment } from '@/environment';

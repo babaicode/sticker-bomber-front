@@ -3,7 +3,7 @@ import { AdminLink } from '../components/AdminLink';
 import { useNavigate } from 'react-router-dom';
 import { UserLink } from '../components/UserLink';
 import { AdminList } from '../components/AdminList';
-import '../styles/StreamerPage.css';
+import styles from '../styles/StreamerPage.module.css';
 import StickerListComponent from '@/sticker/components/StickerListComponent';
 import { BalanceComponent } from '../components/Balance';
 import StreamLink from '../components/StreamLink';
@@ -19,8 +19,9 @@ const Streamer: React.FC = () => {
   }, [isStreamer, navigate]);
 
   return (
-    <div className='streamer-container'>
-      <div className='buttons'>
+    // <div className='streamer-container'>
+    <div className={styles.stremaerContainer}>
+      <div className={styles.linkButtons}>
         <StreamLink />
         <AdminLink />
         <UserLink />

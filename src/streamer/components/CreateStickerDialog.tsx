@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import axios from "axios";
 import { CreateStickerDialogProps } from "../interfaces/CreateStickerDialogProps";
-import "../styles/CreateStickerDialog.css";
+import "../styles/CreateStickerDialog.module.css";
 import { useTranslation } from "react-i18next";
 
 export const CreateStickerDialog: FC<CreateStickerDialogProps> = ({

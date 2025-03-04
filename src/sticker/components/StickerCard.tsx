@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/StickerCard.css';
+import '../styles/StickerCard.module.css';
 
 export interface StickerCardProps {
   stickerId: number;

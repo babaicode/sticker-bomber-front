@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/LocationBlock.css";
+import "../styles/LocationBlock.module.css";
 import StickerLocation from "./StickerLocation";
 import { StickerLocationProps } from "../interfaces/StickerLocationInterface";
 

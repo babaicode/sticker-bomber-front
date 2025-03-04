@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import "../styles/AdminListComponent.css";
+import "../styles/AdminListComponent.module.css";
 import { AdminRuleDialog } from "./AdminRuleDialog";
 import axios from "axios";
 import { AdminRuleInterface, AllRulesInterface } from "../interfaces/RulesInterface";

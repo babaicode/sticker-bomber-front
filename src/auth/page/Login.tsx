@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import '../styles/Auth.css';
+import '../styles/Auth.module.css';
 import axios from 'axios';
 import { getAuthorAvatar, login } from '../service/authService';
 import { useAlert } from '@/alert/AlertContext';

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { CurrentStreamDataDto, StickerOnCurrentStreamDto } from "../interfaces/StickerLocationInterface";
 import { useParams } from "react-router-dom";
-import '../styles/CurrentStreamPage.css';
+import '../styles/CurrentStreamPage.module.css';
 
 const CurrentStream = () => {
     const { stream_url } = useParams<{ stream_url: string }>();  

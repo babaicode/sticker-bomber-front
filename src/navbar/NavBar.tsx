@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import "./styles/navbar.css";
+import "./styles/navbar.module.css";
 import { getAuthorAvatar } from "@/auth/service/authService";
 import { languageOptions } from "@/locales/LanguageOptions";
 
@@ -46,8 +46,8 @@ const NavBar: React.FC = () => {
       <Link to="/logout" className="nav-link">{t("logout")}</Link>
       {avatar && <img src={avatar} alt="User Avatar" className="avatar" />}
 
-      <button className="lang-button" onClick={changeLanguage}>
-        {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
+      <button className="lang-button" type="button" onClick={changeLanguage}>
+        <span role="img" aria-label="flag">{languageOptions.find((lang) => lang.code === currentLanguage)?.flag}</span>
       </button>
     </nav>
   );

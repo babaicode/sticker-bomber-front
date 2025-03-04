@@ -5,7 +5,7 @@ import { StreamerData } from '../interfaces/CustomerInterface';
 import { Environment } from '@/environment';
 import { StickerForSettingLocation } from '@/sticker/interfaces/StickerInterface';
 import StickerCard from '@/sticker/components/StickerCard';
-import '../styles/CustomerPage.css';
+import '../styles/CustomerPage.module.css';
 import CustomerNavbar from '../components/CustomerNavbar';
 
 const Customer: React.FC = () => {

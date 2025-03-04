@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/StickerLocation.css";
+import "../styles/StickerLocation.module.css";
 import { StickerLocationProps } from "../interfaces/StickerLocationInterface";
 import { Environment } from "@/environment";
 import { useTranslation } from "react-i18next";

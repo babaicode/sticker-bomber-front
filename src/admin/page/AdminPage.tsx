@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/AdminPage.css';
+import '../styles/AdminPage.module.css';
 import UploadAvatarComponent from '../components/UploadAvatarComponent';
 
 const AdminPage: React.FC = () => {

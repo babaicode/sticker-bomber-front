@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import '../styles/CustomerNavbar.css';
+import '../styles/CustomerNavbar.module.css';
 import { useTranslation } from "react-i18next";
 import { languageOptions } from "@/locales/LanguageOptions";
 
