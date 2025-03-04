@@ -38,7 +38,7 @@ const Register: React.FC = () => {
       }
 
       if (savedNewUser) {
-        // showAlert('Registration successful', 'success');
+        showAlert('Registration successful', 'success');
         clearInputs();
       }
     } catch (error) {
@@ -126,7 +126,7 @@ const Register: React.FC = () => {
           <Link className="go-to-login" to="/login">
             {t("i-do-have-an-account")}
           </Link>
-          <button className="lang-button" onClick={changeLanguage}>
+          <button className="lang-button" type="button" onClick={changeLanguage}>
             {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
           </button>
         </div>

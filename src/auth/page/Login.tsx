@@ -87,7 +87,7 @@ const Login: React.FC = () => {
         <div className='buttons-box'>
           <button className="register-button" type="submit">{t("login")}</button>
           <Link className='go-to-login' to="/register">{t("do-you-need-to-register")}</Link>
-          <button className="lang-button" onClick={changeLanguage}>
+          <button className="lang-button" type="button" onClick={changeLanguage}>
             {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
           </button>
         </div>
