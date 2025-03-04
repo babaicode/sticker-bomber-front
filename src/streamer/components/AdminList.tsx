@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Environment } from '@/environment';
 import { useAlert } from "@/alert/AlertContext";
 import { getAuthorAvatar } from "@/auth/service/authService";
-import '../styles/AdminListComponent.module.css';
+import styles from '../styles/AdminListComponent.module.css';
 import { AdminCard } from "./AdminCard";
 import { Admin } from "../interfaces/AdminsInterfaces";
 import { useTranslation } from "react-i18next";
@@ -60,7 +60,7 @@ export const AdminList = () => {
   }, [fetchAdmins]);
 
   return (
-    <div className="admin-list-container">
+    <div className={styles.adminListContainer}>
       {admins.length > 0 ? (
         admins.map((admin) => (
           <AdminCard

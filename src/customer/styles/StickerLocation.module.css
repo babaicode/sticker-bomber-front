@@ -1,4 +1,4 @@
-.sticker-location-container {
+.stickerLocationContainer {
   position: relative;
   width: 100%;
   max-width: 1920px;
@@ -9,17 +9,17 @@
   border: 2px solid black;
 }
 
-.draggable-sticker {
+.draggableSticker {
   cursor: grab;
   position: absolute;
   transform: translate(0, -100%);
 }
 
-.draggable-sticker:active {
+.draggableSticker:active {
   cursor: grabbing;
 }
 
-.save-button {
+.saveButton {
   position: absolute;
   bottom: 10px;
   left: 50%;
@@ -34,6 +34,6 @@
   font-weight: bold;
 }
 
-.save-button:hover {
+.saveButton:hover {
   background: darkgreen;
 }

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "../styles/LocationBlock.module.css";
+import styles from "../styles/LocationBlock.module.css";
 import StickerLocation from "./StickerLocation";
 import { StickerLocationProps } from "../interfaces/StickerLocationInterface";
+import clsx from "clsx";
 
 const LocationBlock: React.FC<StickerLocationProps> = ({ sticker, streamerId, time }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1440);
@@ -20,16 +21,16 @@ const LocationBlock: React.FC<StickerLocationProps> = ({ sticker, streamerId, ti
       {isMobile ? (
         !shouldShowMap ? (
           <button
-            className="location-block-button big"
+            className={clsx(styles.locationBlockButton, styles.big)}
             role="button"
             onClick={() => setShouldShowMap(true)}
           >
             Open Map
           </button>
         ) : (
-          <div className="map fullscreen">
+          <div className={clsx(styles.map, styles.fullscreen)}>
             <p>Map for mobile</p>
-            <button className="close-button" onClick={() => setShouldShowMap(false)}>
+            <button className={styles.closeButton} onClick={() => setShouldShowMap(false)}>
               ✖ Close
             </button>
 
@@ -37,7 +38,7 @@ const LocationBlock: React.FC<StickerLocationProps> = ({ sticker, streamerId, ti
           </div>
         )
       ) : (
-        <div className="map sidebar">
+        <div className={clsx(styles.map, styles.sidebar)}>
           <StickerLocation sticker={sticker} streamerId={streamerId} time={time}/>
         </div>
       )}

@@ -2,8 +2,9 @@ import { useAlert } from "@/alert/AlertContext";
 import axios from 'axios';
 import { Environment } from '@/environment';
 import { useCallback, useEffect, useState } from "react";
-import '../styles/UserLinkComponent.module.css';
+import styles from '../styles/UserLinkComponent.module.css';
 import { useTranslation } from "react-i18next";
+import clsx from "clsx";
 
 export const UserLink = () => {
   const API_URL = Environment.StickerBomberBackApiURL;
@@ -52,17 +53,17 @@ export const UserLink = () => {
       { shouldShow ? (
       <div>
         <h3 style={{ textAlign: "center" }}>{t("user-link")}</h3>
-        <div className="admin-link-container">
+        <div className={styles.adminLinkContainer}>
           {userLink ? <p>{userLink}</p> : <p>{t("loading...")}</p>}
-          <div className="button-box">
-            <button className="button-1 small" role="button" onClick={generateUserLink}>{t("Generate new link")}</button>
-            <button className="button-1 mega-small" role="button" onClick={() => setShouldShow(false)}>x</button>
+          <div className={styles.buttonBox}>
+            <button className={clsx(styles.userLinkButton, styles.small)} role="button" onClick={generateUserLink}>{t("Generate new link")}</button>
+            <button className={clsx(styles.userLinkButton, styles.megaSmall)} role="button" onClick={() => setShouldShow(false)}>x</button>
           </div>
         </div>
       </div>
       ) : (
-        <div className="show-user-link-button-container">
-          <button className="button-1" role="button" onClick={() => setShouldShow(true)}>
+        <div className={styles.showUserLinkButtonContainer}>
+          <button className={styles.userLinkButton} role="button" onClick={() => setShouldShow(true)}>
             {t("show-user-link")}
           </button>
         </div> 

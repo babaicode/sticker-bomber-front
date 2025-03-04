@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import '../styles/Auth.module.css';
+import style from  '../styles/Auth.module.css';
 import axios from 'axios';
 import { getAuthorAvatar, login } from '../service/authService';
 import { useAlert } from '@/alert/AlertContext';
@@ -62,8 +62,8 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="auth-container">
-      <form onSubmit={handleSubmit} className="auth-form">
+    <div className={style.authContainer}>
+      <form onSubmit={handleSubmit} className={style.authForm}>
         <h2>{t("login")}</h2>
 
         <div>
@@ -84,10 +84,10 @@ const Login: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className='buttons-box'>
-          <button className="register-button" type="submit">{t("login")}</button>
-          <Link className='go-to-login' to="/register">{t("do-you-need-to-register")}</Link>
-          <button className="lang-button" type="button" onClick={changeLanguage}>
+        <div className={style.buttonsBox}>
+          <button className={style.registerButton} type="submit">{t("login")}</button>
+          <Link className={style.goToLogin} to="/register">{t("do-you-need-to-register")}</Link>
+          <button className={style.langButton} type="button" onClick={changeLanguage}>
             {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
           </button>
         </div>

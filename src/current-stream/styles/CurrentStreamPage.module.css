@@ -1,4 +1,4 @@
-.overlay-container-current-stream {
+.overlayContainerCurrentStream {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@
     background-color: transparent;
 }
 
-.sticker-in-current-stream {
+.stickerInCurrentStream {
     position: absolute;
     transform: translate(0, -100%);
 }

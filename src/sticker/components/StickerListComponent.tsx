@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import '../styles/StickerListComponent.module.css';
+import styles from '../styles/StickerListComponent.module.css';
 import { useAlert } from '@/alert/AlertContext';
 import axios from 'axios';
 import { Environment } from '@/environment';
@@ -43,13 +43,13 @@ const StickerListComponent: React.FC = () => {
       stickerName: string,
       stickerId: number,
       stickerUrl: string
-  }) => {
+    }) => {
     const { stickerName, stickerId, stickerUrl } = sticker;
-
+  
     const stickerUrlObject = processStickerUrl(stickerUrl);
     const stickerIdNum = Number(stickerId);
     const stickerNameStr = String(stickerName);
-
+  
     setStickers((prevStickers) => {
       if (prevStickers.some((s) => s.stickerId === stickerIdNum)) {
         return prevStickers;
@@ -63,7 +63,8 @@ const StickerListComponent: React.FC = () => {
         }
       ];
     }); 
-  }
+  };
+  
 
   const processStickerUrl = (url: string): string => {
     const byteCharacters = atob(url);
@@ -81,7 +82,7 @@ const StickerListComponent: React.FC = () => {
   }
 
   return (
-    <div className='sticker-list-container'>
+    <div className={styles.stickerListContainer}>
       <CreateStickerComponent />
       { stickers &&
         stickers.map((sticker) => (

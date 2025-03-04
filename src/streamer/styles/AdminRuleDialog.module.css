@@ -1,5 +1,5 @@
 /* AdminRuleDialog.module.css */
-.dialog-overlay {
+.dialogOverlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   z-index: 1000;
 }
 
-.dialog-container {
+.dialogContainer {
   background: white;
   padding: 20px;
   width: 400px;
@@ -20,19 +20,51 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.dialog-header {
+.dialogHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.dialog-close-button {
+.dialogCloseButton {
   background: none;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-.dialog-content {
+.dialogBox {
   margin-top: 10px;
+}
+
+.loadingText {
+  text-align: center;
+  margin-bottom: 10px;
+  font-style: italic;
+  color: gray;
+}
+
+/* .dialog-container {
+  max-width: 400px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin: auto;
+} */
+
+.ruleList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ruleItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

@@ -1,4 +1,4 @@
-.admin-list-container {
+.adminListContainer {
   background-color: #f9f9f9;
   border-radius: 24px;
   padding: 1rem;
@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 
-.admin-card-container {
+.adminCardContainer {
   text-align: center;
   margin: 10px;
   flex: 1 1 calc(20% - 1rem);
@@ -22,7 +22,7 @@
   align-items: center;
 }
 
-.admin-card {
+.adminCard {
   width: 100%;
   height: 150px;
   border-radius: 16px;
@@ -37,12 +37,12 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.admin-card:hover {
+.adminCard:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.admin-name {
+.adminName {
   background-color: rgba(0, 0, 0, 0.7);
   color: #fff;
   font-size: 0.9rem;
@@ -56,34 +56,3 @@
   white-space: nowrap;
 }
 
-.dialog-container {
-  max-width: 400px;
-  padding: 20px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  margin: auto;
-}
-
-.rule-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.rule-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  background-color: #f1f1f1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.loading-text {
-  text-align: center;
-  margin-bottom: 10px;
-  font-style: italic;
-  color: gray;
-}

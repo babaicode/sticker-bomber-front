@@ -1,4 +1,4 @@
-.dialog-overlay {
+.dialogOverlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   justify-content: center;
 }
 
-.dialog-container {
+.dialogContainer {
   background: white;
   padding: 2rem;
   border-radius: 12px;
@@ -20,21 +20,21 @@
   text-align: center;
 }
 
-.dialog-header {
+.dialogHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.dialog-close-button {
+.dialogCloseButton {
   background: transparent;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-.upload-area {
+.uploadArea {
   border: 2px dashed #ddd;
   border-radius: 8px;
   padding: 30px;
@@ -46,12 +46,12 @@
   justify-content: center;
 }
 
-.upload-area p {
+.uploadArea p {
   margin: 0;
   color: #888;
 }
 
-.preview-image {
+.previewImage {
   max-width: 100%;
   max-height: 150px;
   border-radius: 8px;

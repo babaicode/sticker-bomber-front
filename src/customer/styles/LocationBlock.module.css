@@ -1,4 +1,4 @@
-.location-block-button {
+.locationBlockButton {
   align-items: center;
   background-color: #fff;
   border-radius: 12px;
@@ -26,22 +26,22 @@
   touch-action: manipulation;
 }
 
-.location-block-button.big {
+.locationBlockButton.big {
   transform: scale(1);
   transform-origin: center;
 }
 
-.location-block-button:hover {
+.locationBlockButton:hover {
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
-.location-block-button.small {
+.locationBlockButton.small {
   transform: scale(0.66);
   transform-origin: center;
   flex: none;
 }
 
-.close-button {
+.closeButton {
   position: absolute;
   top: 10px;
   right: 10px;

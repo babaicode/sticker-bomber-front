@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/StickerLocation.module.css";
+import styles from "../styles/StickerLocation.module.css";
 import { StickerLocationProps } from "../interfaces/StickerLocationInterface";
 import { Environment } from "@/environment";
 import { useTranslation } from "react-i18next";
@@ -113,12 +113,12 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, 
   });
 
   return (
-    <div className="sticker-location-container" ref={containerRef}>
+    <div className={styles.stickerLocationContainer} ref={containerRef}>
       <img
         ref={stickerRef}
         src={sticker.url}
         alt="Sticker"
-        className="draggable-sticker"
+        className={styles.draggableSticker}
         style={{
           left: `${coords.x}px`,
           bottom: `${coords.y}px`,
@@ -130,7 +130,7 @@ const StickerLocation: React.FC<StickerLocationProps> = ({ sticker, streamerId, 
         onMouseDown={handleMouseDown}
       />
 
-      <button className="save-button" onClick={sendCoordsToBackend}>
+      <button className={styles.saveButton} onClick={sendCoordsToBackend}>
         {t("save-screen-position")}
       </button>
     </div>

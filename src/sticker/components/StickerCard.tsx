@@ -1,24 +1,18 @@
 import React from 'react';
-import '../styles/StickerCard.module.css';
-
-export interface StickerCardProps {
-  stickerId: number;
-  stickerUrl: string;
-  stickerName: string;
-  onClick?: () => void;
-}
+import styles from '../styles/StickerCard.module.css';
+import { StickerCardProps } from '../interfaces/StickerInterface';
 
 const StickerCard: React.FC<StickerCardProps> = ({ stickerUrl, stickerName, onClick }) => {
 
   return (
-    <div className="sticker-card-container" onClick={onClick}>
+    <div className={styles.stickerCardContainer} onClick={onClick}>
       <div
-        className='sticker-card'
+        className={styles.stickerCard}
         style={{
           backgroundImage: stickerUrl ? `url(${stickerUrl})` : undefined,
         }}
       >
-        <span className="sticker-name">{stickerName}</span>
+        <span className={styles.stickerName}>{stickerName}</span>
       </div>
     </div>
   );

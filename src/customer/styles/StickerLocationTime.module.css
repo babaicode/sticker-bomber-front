@@ -1,0 +1,61 @@
+.stickerTimeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    margin: auto;
+  }
+  
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .timeOptions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .timeButton {
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .timeButton:hover {
+    background: #ddd;
+  }
+  
+  .selected {
+    background: #2a8fdb;
+    color: white;
+    border-color: #2a8fdb;
+  }
+  
+  .timeInput {
+    width: 50px;
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .timeInput:focus {
+    border-color: #2a8fdb;
+    outline: none;
+  }
+  

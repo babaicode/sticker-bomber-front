@@ -12,13 +12,13 @@
   align-items: center;
 }
 
-.nav-link {
+.navLink {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
 }
 
-.nav-link:hover {
+.navLink:hover {
   color: #ddd;
 }
 
@@ -28,7 +28,7 @@
   border-radius: 50%;
 }
 
-.lang-button {
+.langButton {
   background: none;
   border: none;
   cursor: pointer;
@@ -39,7 +39,11 @@
   padding: 0;
 }
 
-.lang-button img {
+.langButton:hover {
+  color: #ddd;  
+}
+
+.langButton img {
   width: 2rem;
   height: auto;
 }

@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import "../styles/AdminRuleDialog.module.css";
+import styles from "../styles/AdminRuleDialog.module.css";
 import { AdminRuleDialogProps } from "../interfaces/RulesInterface";
 import axios from "axios";
 import { Environment } from "@/environment";
@@ -54,22 +54,22 @@ export const AdminRuleDialog: FC<AdminRuleDialogProps> = ({
   if (!visible) return null;
 
   return (
-    <div className="dialog-overlay">
-      <div className="dialog-container">
-        <div className="dialog-header">
+    <div className={styles.dialogOverlay}>
+      <div className={styles.dialogContainer}>
+        <div className={styles.dialogHeader}>
           <h3>{title}</h3>
-          <button className="dialog-close-button" onClick={onClose}>
+          <button className={styles.dialogCloseButton} onClick={onClose}>
             &times;
           </button>
         </div>
-        <div className="dialog-box">
-          {isUpdating && <p className="loading-text">{t("updating...")}</p>}
-          <ul className="rule-list">
+        <div className={styles.dialogBox}>
+          {isUpdating && <p className={styles.loadingText}>{t("updating...")}</p>}
+          <ul className={styles.ruleList}>
             {allRules?.map((rule) => (
-              <li key={rule.id} className="rule-item">
+              <li key={rule.id} className={styles.ruleItem}>
                 <span>{rule.rule}</span>
                 <input
-                  type="checkbox"
+                  type={styles.checkbox}
                   checked={!!ruleStates[rule.id]}
                   onChange={(e) => handleCheckboxChange(rule.id, e.target.checked)}
                 />

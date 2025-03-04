@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { AdminComponentProps } from "../interfaces/StreamerInterface";
-import '../styles/AdminComponent.module.css';
+import styles from '../styles/AdminComponent.module.css';
 import { Environment } from "@/environment";
 import { useAlert } from "@/alert/AlertContext";
 import axios from "axios";
@@ -52,7 +52,7 @@ export const AdminComponent: React.FC<AdminComponentProps> = ({ adminName, admin
   }, [adminId, getRulesByAdminId, getAllRules]);
 
   return (
-    <div className="admin-list-container">
+    <div className={styles.adminListContainer}>
       <p>{adminName}</p>
       <button onClick={openDialog}>{t("show-admin-rules")}</button>
 

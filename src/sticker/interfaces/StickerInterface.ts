@@ -8,7 +8,7 @@ export interface Sticker {
   stickerId: number;
   url: string;
   stickerName: string;
-  price: number;
+  price?: number;
 }
 
 export interface StickerForSettingLocation {
@@ -19,4 +19,11 @@ export interface StickerForSettingLocation {
   stickerWidth: number;
   stickerHeight: number;
   price: number;
+}
+
+export interface StickerCardProps {
+  stickerId: number;
+  stickerUrl: string;
+  stickerName: string;
+  onClick?: () => void;
 }

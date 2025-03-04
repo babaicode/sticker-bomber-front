@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import styles from "../styles/StickerLocationTime.module.css"; // Import CSS Module
 
 interface StickerLocationTimeProps {
   setTime: (time: number) => void;
@@ -15,13 +16,13 @@ const StickerLocationTime: React.FC<StickerLocationTimeProps> = ({ setTime }) =>
   };
 
   return (
-    <div className="sticker-time-container">
-      <h3>{t("select-duration-seconds")}</h3>
-      <div className="time-options">
+    <div className={styles.stickerTimeContainer}>
+      <h3 className={styles.title}>{t("select-duration-seconds")}</h3>
+      <div className={styles.timeOptions}>
         {[2, 5, 10].map((time) => (
           <button 
             key={time} 
-            className={`time-button ${selectedTime === time ? "selected" : ""}`}
+            className={`${styles.timeButton} ${selectedTime === time ? styles.selected : ""}`}
             onClick={() => handleTimeSelect(time)}
           >
             {time}
@@ -32,7 +33,7 @@ const StickerLocationTime: React.FC<StickerLocationTimeProps> = ({ setTime }) =>
           min="1"
           value={selectedTime}
           onChange={(e) => handleTimeSelect(Number(e.target.value))}
-          className="time-input"
+          className={styles.timeInput}
         />
       </div>
     </div>

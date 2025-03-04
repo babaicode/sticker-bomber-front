@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { CurrentStreamDataDto, StickerOnCurrentStreamDto } from "../interfaces/StickerLocationInterface";
 import { useParams } from "react-router-dom";
-import '../styles/CurrentStreamPage.module.css';
+import styles from '../styles/CurrentStreamPage.module.css';
 
 const CurrentStream = () => {
     const { stream_url } = useParams<{ stream_url: string }>();  
@@ -57,13 +57,13 @@ const CurrentStream = () => {
     }, [stream_url, size]);
 
     return (
-        <div className="overlay-container-current-stream" ref={containerRef}>
+        <div className={styles.overlayContainerCurrentStream} ref={containerRef}>
             {currentStreamData?.stickers.map((sticker) => (
                 <img
                     key={sticker.stickerId}
                     src={sticker.stickerUrl}
                     alt={sticker.stickerName}
-                    className="sticker-in-current-stream"
+                    className={styles.stickerInCurrentStream}
                     style={{
                         left: `${sticker.locationX}px`,
                         top: `${size.height - sticker.locationY}px`,

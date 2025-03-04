@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import '../styles/Auth.module.css';
+import style from '../styles/Auth.module.css';
 import axios from 'axios';
 import { register, registerAdmin } from '../service/authService';
 import { useAlert } from '@/alert/AlertContext';
@@ -87,8 +87,8 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="auth-container">
-      <form onSubmit={handleSubmit} className="auth-form">
+    <div className={style.authContainer}>
+      <form onSubmit={handleSubmit} className={style.authForm}>
         <h2>{t("register")}</h2>
 
         <div>
@@ -119,14 +119,14 @@ const Register: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className="buttons-box">
-          <button className="register-button" type="submit">
+        <div className={style.buttonsBox}>
+          <button className={style.registerButton} type="submit">
             {t('register')}
           </button>
-          <Link className="go-to-login" to="/login">
+          <Link className={style.goToLogin} to="/login">
             {t("i-do-have-an-account")}
           </Link>
-          <button className="lang-button" type="button" onClick={changeLanguage}>
+          <button className={style.langButton} type="button" onClick={changeLanguage}>
             {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
           </button>
         </div>

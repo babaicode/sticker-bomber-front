@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import "../styles/AdminListComponent.module.css";
+import styles from "../styles/AdminListComponent.module.css";
 import { AdminRuleDialog } from "./AdminRuleDialog";
 import axios from "axios";
 import { AdminRuleInterface, AllRulesInterface } from "../interfaces/RulesInterface";
@@ -43,15 +43,15 @@ export const AdminCard: React.FC<AdminCardProps> = ({ userName, avatarUrl, admin
   }, [adminId, getRulesByAdminId, getAllRules]);
 
   return (
-    <div className="admin-card-container">
+    <div className={styles.adminCardContainer}>
       <div
-        className="admin-card"
+        className={styles.adminCard}
         style={{
           backgroundImage: avatarUrl ? `url(${avatarUrl})` : undefined,
         }}
         onClick={openDialog}
       >
-        <span className="admin-name">{userName}</span>
+        <span className={styles.adminName}>{userName}</span>
       </div>
       <AdminRuleDialog
         visible={isDialogOpen}

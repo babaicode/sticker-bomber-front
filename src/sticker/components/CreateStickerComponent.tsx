@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/CreateStickerComponent.module.css';
+import styles from '../styles/CreateStickerComponent.module.css';
 import { CreateStickerDialog } from '@/streamer/components/CreateStickerDialog';
 import { useTranslation } from 'react-i18next';
 
@@ -11,14 +11,12 @@ const CreateStickerComponent: React.FC = () => {
   const closeDialog = () => setIsDialogOpen(false);
 
   return (
-    <div className='create-sticker-card-container'>
+    <div className={styles.createStickerCardContainer}>
       <div
-        className='create-sticker-card'
+        className={styles.createStickerCard}
         onClick={openDialog}
       >
-        <div className="plus-sign"></div>
-
-        <span className="titile">{t("create-sticker")}</span>
+        <span className={styles.titile}>{t("create-sticker")}</span>
       </div>
       <CreateStickerDialog
               visible={isDialogOpen}

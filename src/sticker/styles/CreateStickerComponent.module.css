@@ -1,4 +1,4 @@
-.create-sticker-card-container {
+.createStickerCardContainer {
   text-align: center;
   margin: 10px;
   flex: 1 1 calc(20% - 1rem);
@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-.create-sticker-card {
+.createStickerCard {
   width: 100%;
   height: 150px;
   border-radius: 16px;
@@ -24,7 +24,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.create-sticker-card:hover {
+.createStickerCard:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }

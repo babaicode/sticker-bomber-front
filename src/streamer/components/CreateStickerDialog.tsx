@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import axios from "axios";
 import { CreateStickerDialogProps } from "../interfaces/CreateStickerDialogProps";
-import "../styles/CreateStickerDialog.module.css";
+import styles from "../styles/CreateStickerDialog.module.css";
 import { useTranslation } from "react-i18next";
 
 export const CreateStickerDialog: FC<CreateStickerDialogProps> = ({
@@ -71,23 +71,23 @@ export const CreateStickerDialog: FC<CreateStickerDialogProps> = ({
   if (!visible) return null;
 
   return (
-    <div className="dialog-overlay">
-      <div className="dialog-container">
-        <div className="dialog-header">
+    <div className={styles.dialogOverlay}>
+      <div className={styles.dialogContainer}>
+        <div className={styles.dialogHeader}>
           <h3>{t("create-sticker")}</h3>
-          <button className="dialog-close-button" onClick={onClose}>
+          <button className={styles.dialogCloseButton} onClick={onClose}>
             &times;
           </button>
         </div>
 
         <div
-          className="upload-area"
+          className={styles.uploadArea}
           onDragOver={(e) => e.preventDefault()}
           onDrop={handleDrop}
           onClick={() => document.getElementById("fileInput")?.click()}
         >
           {preview ? (
-            <img src={preview} alt="Preview" className="preview-image" />
+            <img src={preview} alt="Preview" className={styles.previewImage} />
           ) : (
             <p>{t("drag-and-drop-or-click-to-upload")}</p>
           )}
@@ -99,7 +99,7 @@ export const CreateStickerDialog: FC<CreateStickerDialogProps> = ({
           />
         </div>
 
-        <div className="dialog-body">
+        <div className={styles.dialogBody}>
           <input
             type="text"
             placeholder={t("sticker-name")}

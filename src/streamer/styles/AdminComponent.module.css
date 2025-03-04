@@ -1,4 +1,4 @@
-.admin-list-container {
+.adminListContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,24 +9,24 @@
   width: 300px;
 }
 
-.admin-list-container p {
+.adminListContainer p {
   font-size: 16px;
   color: #333;
   margin: 5px 0;
 }
 
-.admin-list-container p:first-child {
+.adminListContainer p:first-child {
   font-weight: bold;
   text-transform: uppercase;
   color: #555;
 }
 
-.admin-list-container p:nth-child(2) {
+.adminListContainer p:nth-child(2) {
   font-weight: 600;
   color: #1a73e8;
 }
 
-.admin-list-container p:nth-child(3) {
+.adminListContainer p:nth-child(3) {
   font-size: 14px;
   color: #888;
 }

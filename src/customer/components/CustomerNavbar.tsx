@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import '../styles/CustomerNavbar.module.css';
+import styles from '../styles/CustomerNavbar.module.css';
 import { useTranslation } from "react-i18next";
 import { languageOptions } from "@/locales/LanguageOptions";
 
@@ -33,10 +33,10 @@ const CustomerNavbar = () => {
     };
 
     return (
-        <nav className="navbar">
-            {!isLoggedIn && <Link to="/login" className="nav-link">{t("login")}</Link>}
-            {isLoggedIn && <Link to="/streamer-list" className="nav-link">{t("streamer-list")}</Link>}
-            <button className="lang-button" onClick={changeLanguage}>
+        <nav className={styles.navbar}>
+            {!isLoggedIn && <Link to="/login" className={styles.navLink}>{t("login")}</Link>}
+            {isLoggedIn && <Link to="/streamer-list" className={styles.navLink}>{t("streamer-list")}</Link>}
+            <button className={styles.langButton} onClick={changeLanguage}>
                 {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
             </button>
         </nav>
