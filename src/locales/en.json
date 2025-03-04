@@ -10,7 +10,12 @@
   "upload-avatar": "Upload avatar",
 
   "login": "Login",
+  "email": "Email",
+  "password": "Password",
   "do-you-need-to-register": "Do you need to register?",
+  "i-do-have-an-account": "I do have an account",
+  "register": "Register",
+  "username": "Username",
 
   "streamer-list": "Streamer list",
 

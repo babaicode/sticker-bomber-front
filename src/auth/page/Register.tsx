@@ -5,6 +5,8 @@ import axios from 'axios';
 import { register, registerAdmin } from '../service/authService';
 import { useAlert } from '@/alert/AlertContext';
 import { Environment } from '@/environment';
+import { useTranslation } from 'react-i18next';
+import { languageOptions } from '@/locales/LanguageOptions';
 
 const API_URL = Environment.StickerBomberBackApiURL;
 
@@ -13,8 +15,11 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [streamerId, setStreamerId] = useState<number | null>(null);
+
   const { showAlert } = useAlert();
   const { dynamicParam } = useParams<{ dynamicParam?: string }>();
+  const { t, i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,7 +38,7 @@ const Register: React.FC = () => {
       }
 
       if (savedNewUser) {
-        showAlert('Registration successful', 'success');
+        // showAlert('Registration successful', 'success');
         clearInputs();
       }
     } catch (error) {
@@ -71,13 +76,23 @@ const Register: React.FC = () => {
     return true;
   };
 
+  const changeLanguage = () => {
+    const nextLang =
+      languageOptions[
+        (languageOptions.findIndex((lang) => lang.code === currentLanguage) + 1) %
+          languageOptions.length
+      ];
+    i18n.changeLanguage(nextLang.code);
+    setCurrentLanguage(nextLang.code);
+  };
+
   return (
     <div className="auth-container">
       <form onSubmit={handleSubmit} className="auth-form">
-        <h2>Register</h2>
+        <h2>{t("register")}</h2>
 
         <div>
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="username">{t("username")}:</label>
           <input
             className="input"
             type="text"
@@ -87,7 +102,7 @@ const Register: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">{t("email")}:</label>
           <input
             type="text"
             id="email"
@@ -96,7 +111,7 @@ const Register: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">{t("password")}:</label>
           <input
             type="password"
             id="password"
@@ -106,11 +121,14 @@ const Register: React.FC = () => {
         </div>
         <div className="buttons-box">
           <button className="register-button" type="submit">
-            Register
+            {t('register')}
           </button>
           <Link className="go-to-login" to="/login">
-            I do have an account
+            {t("i-do-have-an-account")}
           </Link>
+          <button className="lang-button" onClick={changeLanguage}>
+            {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
+          </button>
         </div>
       </form>
     </div>

@@ -10,7 +10,12 @@
   "upload-avatar": "Загрузить аватар",
   
   "login": "Войти",
+  "email": "Почта",
+  "password": "Пароль",
   "do-you-need-to-register": "Хотите зарегистрироваться?",
+  "i-do-have-an-account": "У меня уже есть аккаунт",
+  "register": "Регистрация",
+  "username": "Имя пользователя",
 
   "streamer-list": "Список стримеров",
 

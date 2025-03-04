@@ -74,16 +74,19 @@ p {
   height: 3rem;
 }
 
-.go-to-login{
+.go-to-login {
   width: 60%;
-  font-size: medium;
+  font-size: small;
   border: #2a2f35 solid 1px;
   border-radius: 4px;
   text-align: center;
   transition: background-color 0.3s ease, transform 0.1s ease;
   flex: 1;
-  text-align: left;
   height: 3rem;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .go-to-login:hover {
@@ -102,6 +105,7 @@ p {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  gap: 10px;
 }
 
 body {

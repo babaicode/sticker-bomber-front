@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../styles/CustomerNavbar.css';
 import { useTranslation } from "react-i18next";
-
-const languageOptions = [
-    { code: "en", flag: "🇺🇸" },
-    { code: "ru", flag: "🇷🇺" }
-  ];
+import { languageOptions } from "@/locales/LanguageOptions";
 
 const CustomerNavbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);

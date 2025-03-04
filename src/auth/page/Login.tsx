@@ -6,11 +6,7 @@ import axios from 'axios';
 import { getAuthorAvatar, login } from '../service/authService';
 import { useAlert } from '@/alert/AlertContext';
 import { useTranslation } from 'react-i18next';
-
-const languageOptions = [
-  { code: "en", flag: "🇺🇸" },
-  { code: "ru", flag: "🇷🇺" }
-];
+import { languageOptions } from '@/locales/LanguageOptions';
 
 const Login: React.FC = () => {
   const [password, setPassword] = useState('');
@@ -68,10 +64,10 @@ const Login: React.FC = () => {
   return (
     <div className="auth-container">
       <form onSubmit={handleSubmit} className="auth-form">
-        <h2>Login</h2>
+        <h2>{t("login")}</h2>
 
         <div>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">{t("email")}:</label>
           <input
             type="text"
             id="email"
@@ -80,7 +76,7 @@ const Login: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">{t("password")}:</label>
           <input
             type="password"
             id="password"
@@ -92,8 +88,8 @@ const Login: React.FC = () => {
           <button className="register-button" type="submit">{t("login")}</button>
           <Link className='go-to-login' to="/register">{t("do-you-need-to-register")}</Link>
           <button className="lang-button" onClick={changeLanguage}>
-        {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
-      </button>
+            {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
+          </button>
         </div>
       </form>
     </div>

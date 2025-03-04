@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./styles/navbar.css";
 import { getAuthorAvatar } from "@/auth/service/authService";
-
-const languageOptions = [
-  { code: "en", flag: "🇺🇸" },
-  { code: "ru", flag: "🇷🇺" }
-];
+import { languageOptions } from "@/locales/LanguageOptions";
 
 const NavBar: React.FC = () => {
   const { t, i18n } = useTranslation();
