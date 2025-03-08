@@ -19,7 +19,6 @@ const Streamer: React.FC = () => {
   }, [isStreamer, navigate]);
 
   return (
-    // <div className='streamer-container'>
     <div className={styles.stremaerContainer}>
       <div className={styles.linkButtons}>
         <StreamLink />
