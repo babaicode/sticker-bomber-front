@@ -16,6 +16,9 @@ import Customer from './customer/page/Customer';
 import StreamerList from './customer/page/StreamerList';
 import StickerPicker from './customer/page/StickerPicker';
 import CurrentStream from './current-stream/page/CurrentStream';
+import StickerSendPage from './customer/components/StickerSendPage';
+import PaymentPage from './payment/page/PaymentPage';
+import PaymentSuccess from './payment/components/PaymentSuccess';
 
 const App: React.FC = () => {
   return (
@@ -37,6 +40,9 @@ const App: React.FC = () => {
               <Route path="admin" element={<PrivateRoute element={<AdminPage />} />} />
               <Route path="wonna-be-streamer" element={<PrivateRoute element={<WonnaBeStreamer />} />} />
               <Route path="/current-stream/:stream_url" element={<CurrentStream />} />
+              <Route path="/payment" element={<PaymentPage />} />
+              <Route path="/sticker-send" element={<StickerSendPage />} />
+              <Route path="/payment/success" element={<PaymentSuccess />} />
             </Routes>
           </div>
         </Router>
