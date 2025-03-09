@@ -69,7 +69,7 @@ input[type="number"] {
 
 button {
   padding: 12px 20px;
-  background-color: #4caf50;
+  background-color: #AAAFB0;
   color: white;
   border: none;
   border-radius: 8px;
@@ -78,7 +78,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #8F9496;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -86,3 +86,19 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.dialogCloseButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  padding: 5px;
+  color: #333;
+}
+
+.dialogCloseButton:hover {
+  transform: scale(1.2);
+  color: #000;
+}
+

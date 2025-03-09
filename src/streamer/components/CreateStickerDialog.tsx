@@ -76,7 +76,7 @@ export const CreateStickerDialog: FC<CreateStickerDialogProps> = ({
         <div className={styles.dialogHeader}>
           <h3>{t("create-sticker")}</h3>
           <button className={styles.dialogCloseButton} onClick={onClose}>
-            &times;
+            ✖
           </button>
         </div>
 
