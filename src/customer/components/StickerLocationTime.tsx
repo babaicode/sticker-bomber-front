@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import styles from "../styles/StickerLocationTime.module.css"; // Import CSS Module
-
-interface StickerLocationTimeProps {
-  setTime: (time: number) => void;
-}
+import styles from "../styles/StickerLocationTime.module.css";
+import { StickerLocationTimeProps } from "../interfaces/StickerLocationTimeProps";
 
 const StickerLocationTime: React.FC<StickerLocationTimeProps> = ({ setTime }) => {
   const [selectedTime, setSelectedTime] = useState<number>(2);

@@ -1,4 +1,10 @@
+import MostPopularStreamers from "../components/MostPopularStreamers"
+
 const Dashboard: React.FC = () => {
-  return <div>Salam eto dashboard</div>
+  return (
+    <div>
+      <MostPopularStreamers />
+    </div>
+  )
 }
 export default Dashboard
