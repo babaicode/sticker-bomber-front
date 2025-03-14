@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import style from '../styles/Auth.module.css';
 import axios from 'axios';
 import { register, registerAdmin } from '../service/authService';
@@ -20,6 +20,7 @@ const Register: React.FC = () => {
   const { dynamicParam } = useParams<{ dynamicParam?: string }>();
   const { t, i18n } = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,6 +41,7 @@ const Register: React.FC = () => {
       if (savedNewUser) {
         showAlert('Registration successful', 'success');
         clearInputs();
+        navigate('/dashboard');
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -86,6 +88,10 @@ const Register: React.FC = () => {
     setCurrentLanguage(nextLang.code);
   };
 
+  const handleGoogleLogin = () => {
+    window.location.href = `${API_URL}/user/login-with/google`;
+  };
+
   return (
     <div className={style.authContainer}>
       <form onSubmit={handleSubmit} className={style.authForm}>
@@ -128,6 +134,9 @@ const Register: React.FC = () => {
           </Link>
           <button className={style.langButton} type="button" onClick={changeLanguage}>
             {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
+          </button>
+          <button className={style.googleButton} type="button" onClick={handleGoogleLogin}>
+            {t('login-with-google')}
           </button>
         </div>
       </form>
