@@ -25,6 +25,8 @@ pipeline {
                 script {
                     withDockerRegistry([url: "http://${dockerRepository}", credentialsId: 'docker-registry-credentials']) {
                         sh "docker push ${dockerRepository}/${imageName}:${env.BUILD_NUMBER}"
+                        sh "docker tag ${dockerRepository}/${imageName}:${env.BUILD_NUMBER} ${dockerRepository}/${imageName}:latest"
+                        sh "docker push ${dockerRepository}/${imageName}:latest"
                     }
                 }
             }
