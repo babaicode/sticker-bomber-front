@@ -116,8 +116,17 @@
   gap: 8px;
   font-size: 14px;
   color: red;
+  font-family: Arial, sans-serif;
 }
 
 .dropdownItemLogout:hover {
   background: #ffecec;
+}
+
+.langButtonText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.2rem;
 }

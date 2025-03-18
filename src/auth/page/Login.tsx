@@ -34,7 +34,7 @@ const Login: React.FC = () => {
         }
 
         showAlert('Login successful', 'success');
-        navigate('/dashboard');
+        navigate('/');
         clearInputs();
       }
     } catch (error) {

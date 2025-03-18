@@ -36,10 +36,14 @@ const NavBar: React.FC = () => {
     fetchAvatar();
   }, []);
 
-  const changeLanguage = (langCode: string) => {
-    i18n.changeLanguage(langCode);
-    setCurrentLanguage(langCode);
-    setDropdownOpen(false);
+  const changeLanguage = () => {
+    const nextLang =
+      languageOptions[
+        (languageOptions.findIndex((lang) => lang.code === currentLanguage) + 1) %
+          languageOptions.length
+      ];
+    i18n.changeLanguage(nextLang.code);
+    setCurrentLanguage(nextLang.code);
   };
 
   const handleLogout = () => {
@@ -70,16 +74,9 @@ const NavBar: React.FC = () => {
 
         {dropdownOpen && (
           <ul className={styles.dropdownMenu}>
-            {languageOptions.map((lang) => (
-              <li key={lang.code}>
-                <button
-                  className={styles.dropdownItem}
-                  onClick={() => changeLanguage(lang.code)}
-                >
-                  <span role="img" aria-label={lang.code}>{lang.flag}</span> {lang.code}
-                </button>
-              </li>
-            ))}
+            <button className={styles.dropdownItem} type="button" onClick={changeLanguage}>
+              <span className={styles.langButtonText} role="img" aria-label="flag">{languageOptions.find((lang) => lang.code === currentLanguage)?.flag}</span>
+            </button>
             <li>
               <button className={styles.dropdownItemLogout} onClick={handleLogout}>
                 🚪 {t("logout")}
