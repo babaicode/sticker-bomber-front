@@ -55,7 +55,7 @@ export const WonnaBeStreamer: React.FC = () => {
   }, [userId, checkIfUserAlreadyStreamer]);
 
   return (
-    <div>
+    <div style={{ margin: '2rem'}}>
       <h1>{t("wonna-be-a-streamer?")}</h1>
       <p>
         {t("you-are-not-a-streamer-yet....")}

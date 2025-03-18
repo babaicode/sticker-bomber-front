@@ -10,6 +10,7 @@ const NavBar: React.FC = () => {
   const [avatar, setAvatar] = useState<string | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  const [isStreamer, setIsStreamer] = useState(false);
 
   useEffect(() => {
     const fetchAvatar = async () => {
@@ -22,6 +23,11 @@ const NavBar: React.FC = () => {
         setIsAdmin(true);
       } else {
         setIsAdmin(false);
+      }
+
+      const streamerId = localStorage.getItem("streamerId");
+      if (streamerId && streamerId !== "undefined") {
+        setIsStreamer(true);
       }
     };
 
@@ -41,8 +47,9 @@ const NavBar: React.FC = () => {
   return (
     <nav className={styles.navbar}>
       <Link to="/" className={styles.navLink}>{t("home")}</Link>
-      {!isAdmin && <Link to="/streamer" className={styles.navLink}>{t("streamer")}</Link>}
-      {isAdmin && <Link to="/admin" className={styles.navLink}>{t("admin")}</Link>}
+      {!isAdmin && isStreamer && <Link to="/streamer" className={styles.navLink}>{t("streamer")}</Link>}
+      {isAdmin && !isStreamer && <Link to="/admin" className={styles.navLink}>{t("admin")}</Link>}
+      {!isAdmin && !isStreamer && <Link to="/wonna-be-streamer" className={styles.navLink}>{t("wonna-be-a-streamer?")}</Link>}
       <Link to="/logout" className={styles.navLink}>{t("logout")}</Link>
       {avatar && <img src={avatar} alt="User Avatar" className={styles.avatar} />}
 
