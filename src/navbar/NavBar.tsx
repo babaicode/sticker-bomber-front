@@ -49,6 +49,7 @@ const NavBar: React.FC = () => {
       <Link to="/" className={styles.navLink}>{t("home")}</Link>
       {!isAdmin && isStreamer && <Link to="/streamer" className={styles.navLink}>{t("streamer")}</Link>}
       {isAdmin && !isStreamer && <Link to="/admin" className={styles.navLink}>{t("admin")}</Link>}
+      {!isAdmin && !isStreamer && <Link to="/wonna-be-streamer" className={styles.navLink}>{t("wonna-be-a-streamer?")}</Link>}
       <Link to="/logout" className={styles.navLink}>{t("logout")}</Link>
       {avatar && <img src={avatar} alt="User Avatar" className={styles.avatar} />}
 
