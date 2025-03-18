@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  frontend:
+    container_name: sticker-bomber-front
+    image: sticker-bomber.ru:5001/bomber-front:latest
+    restart: always
+    ports:
+      - "3000:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
