@@ -4,6 +4,12 @@ def imageName = 'bomber-front'
 pipeline {
     agent any
 
+    environment {
+        dockerRepository = 'sticker-bomber.ru:5001'
+        imageName = 'bomber-front'
+        imageTag = "${dockerRepository}/${imageName}:${env.BUILD_NUMBER}"
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -14,7 +20,6 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    def imageTag = "${dockerRepository}/${imageName}:${env.BUILD_NUMBER}"
                     sh "docker build -t ${imageTag} ."
                 }
             }
@@ -24,8 +29,8 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry([url: "http://${dockerRepository}", credentialsId: 'docker-registry-credentials']) {
-                        sh "docker push ${dockerRepository}/${imageName}:${env.BUILD_NUMBER}"
-                        sh "docker tag ${dockerRepository}/${imageName}:${env.BUILD_NUMBER} ${dockerRepository}/${imageName}:latest"
+                        sh "docker push ${imageTag}"
+                        sh "docker tag ${imageTag} ${dockerRepository}/${imageName}:latest"
                         sh "docker push ${dockerRepository}/${imageName}:latest"
                     }
                 }
@@ -35,9 +40,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    def imageTag = "${dockerRepository}/${imageName}:${env.BUILD_NUMBER}"
                     sh """
-                        docker-compose down
+                        docker rm -f sticker-bomber-front || true
+                        docker-compose down --remove-orphans
                         docker-compose pull frontend
                         docker-compose up -d
                     """
