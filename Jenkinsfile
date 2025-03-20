@@ -5,6 +5,10 @@ pipeline {
     agent any
 
     environment {
+        REACT_APP_API_URL = "https://sticker-bomber.ru/api"
+    }
+
+    environment {
         dockerRepository = 'sticker-bomber.ru:5001'
         imageName = 'bomber-front'
         imageTag = "${dockerRepository}/${imageName}:${env.BUILD_NUMBER}"
@@ -45,6 +49,7 @@ pipeline {
                         docker-compose down --remove-orphans
                         docker-compose pull frontend
                         docker-compose up -d
+                        docker restart nginx
                     """
                 }
             }
