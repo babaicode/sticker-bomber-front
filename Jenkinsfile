@@ -41,8 +41,9 @@ pipeline {
                 script {
                     sh """
                         docker-compose down
-                        docker rm -f \$(docker ps -aq) || true
+                        docker ps -aq | xargs -r docker rm -f
                         docker-compose up -d
+                        docker network prune -f
                     """
                 }
             }
