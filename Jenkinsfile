@@ -8,12 +8,6 @@ pipeline {
         REACT_APP_API_URL = "https://sticker-bomber.ru/api"
     }
 
-    environment {
-        dockerRepository = 'sticker-bomber.ru:5001'
-        imageName = 'bomber-front'
-        imageTag = "${dockerRepository}/${imageName}:${env.BUILD_NUMBER}"
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -24,7 +18,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "docker build -t ${imageTag} ."
+                    def imageTag = "sticker-bomber.ru:5001/bomber-front:${env.BUILD_NUMBER}"
+                    sh "docker build --build-arg REACT_APP_API_URL=${REACT_APP_API_URL} -t ${imageTag} ."
                 }
             }
         }
@@ -32,10 +27,10 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry([url: "http://${dockerRepository}", credentialsId: 'docker-registry-credentials']) {
-                        sh "docker push ${imageTag}"
-                        sh "docker tag ${imageTag} ${dockerRepository}/${imageName}:latest"
-                        sh "docker push ${dockerRepository}/${imageName}:latest"
+                    withDockerRegistry([url: "http://sticker-bomber.ru:5001", credentialsId: 'docker-registry-credentials']) {
+                        sh "docker push sticker-bomber.ru:5001/bomber-front:${env.BUILD_NUMBER}"
+                        sh "docker tag sticker-bomber.ru:5001/bomber-front:${env.BUILD_NUMBER} sticker-bomber.ru:5001/bomber-front:latest"
+                        sh "docker push sticker-bomber.ru:5001/bomber-front:latest"
                     }
                 }
             }
@@ -44,13 +39,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    sh """
-                        docker rm -f sticker-bomber-front || true
-                        docker-compose down --remove-orphans
-                        docker-compose pull frontend
-                        docker-compose up -d
-                        docker restart nginx
-                    """
+                    sh "docker-compose down"
+                    sh "docker-compose up -d"
                 }
             }
         }
