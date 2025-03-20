@@ -86,6 +86,8 @@ const Register: React.FC = () => {
       ];
     i18n.changeLanguage(nextLang.code);
     setCurrentLanguage(nextLang.code);
+    
+    console.log(API_URL, 'API_URL');
   };
 
   const handleGoogleLogin = () => {
