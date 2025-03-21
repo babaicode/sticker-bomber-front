@@ -55,12 +55,38 @@
   "show-user-link": "Показать пользовательскую ссылку",
 
   "wonna-be-a-streamer?": "Хотите стать стримером?",
-  "you-are-not-a-streamer-yet....": "Вы еще не стример. Если хотите стать стримером, пожалуйста нажмите на кнопку выше.",
+  "you-are-not-a-streamer-yet....": "Вы еще не стример. Если хотите стать стримером, пожалуйста нажмите на кнопку ниже.",
   "become-a-streamer": "Стать стримером",
 
   "most-popular-streamers": "Самые популярные стримеры",
   "received-stickers": "Полученные стикеры",
   "previous-(women)": "Предыдущая",
   "next-(women)": "Следующая",
-  "page": "Страница"
+  "page": "Страница",
+
+  "change-avatar__big": "Сменить аватар",
+  "change-avatar__small": "сменить аватар",
+  "select-avatar__small": "Выбрать аватар",
+  "change-my-avatar": "Сменить мой аватар",
+  "close__small": "закрыть",
+  "delete__small": "удалить",
+
+  "change_email": "Сменить почту",
+  "current_email": "Текущая почта",
+  "update_email": "Обновить почту",
+  "enter_new_email": "Введите новую почту",
+
+  "change_password": "Сменить пароль",
+  "enter_old_password": "Введите старый пароль",
+  "enter_new_password": "Введите новый пароль",
+  "update_password": "Обновить пароль",
+
+  "customer_support": "Поддержка клиентов",
+
+  "delete_my_account": "Удалить мой аккаунт",
+  "this_action_is_irreversible": "Это действие необратимо.. Для подтверждения введите",
+  "type_here": "введите сюда",
+  "delete_account": "Удалить аккаунт",
+
+  "my_profile": "Мой профиль"
 }

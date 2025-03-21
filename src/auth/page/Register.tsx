@@ -41,7 +41,7 @@ const Register: React.FC = () => {
       if (savedNewUser) {
         showAlert('Registration successful', 'success');
         clearInputs();
-        navigate('/dashboard');
+        navigate('/');
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {

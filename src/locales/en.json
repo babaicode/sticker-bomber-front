@@ -53,12 +53,38 @@
   "show-user-link": "Show User Link",
 
   "wonna-be-a-streamer?": "Wonna be a streamer?",
-  "you-are-not-a-streamer-yet....": "You are not a streamer yet. If you want to be a streamer, please press the button above.",
+  "you-are-not-a-streamer-yet....": "You are not a streamer yet. If you want to be a streamer, please press the button below.",
   "become-a-streamer": "Become a streamer",
 
   "most-popular-streamers": "Most Popular Streamers",
   "received-stickers": "Received Stickers",
   "previous-(women)": "Previous",
   "next-(women)": "Next",
-  "page": "Page"
+  "page": "Page",
+
+  "change-avatar__big": "Change Avatar",
+  "change-avatar__small": "change avatar",
+  "select-avatar__small": "Select Avatar",
+  "change-my-avatar": "Change my avatar",
+  "close__small": "close",
+  "delete__small": "delete",
+
+  "change_email": "Change email",
+  "current_email": "Current email",
+  "update_email": "Update email",
+  "enter_new_email": "Enter new email",
+
+  "change_password": "Change password",
+  "enter_old_password": "Enter old password",
+  "enter_new_password": "Enter new password",
+  "update_password": "Update password",
+
+  "customer_support": "Customer support",
+
+  "delete_my_account": "Delete my account",
+  "this_action_is_irreversible": "This action is irreversible. To confirm, please type",
+  "type_here": "type here",
+  "delete_account": "Delete account",
+
+  "my_profile": "My Profile"
 }

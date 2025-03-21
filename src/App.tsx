@@ -16,6 +16,7 @@ import Customer from './customer/page/Customer';
 import StreamerList from './customer/page/StreamerList';
 import StickerPicker from './customer/page/StickerPicker';
 import CurrentStream from './current-stream/page/CurrentStream';
+import MyProfilePage from './my-profile/page/MyProfilePage';
 
 const App: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ const App: React.FC = () => {
               <Route path="/streamer-list" element={<StreamerList />} />
               <Route path="/sp" element={<StickerPicker />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/me" element={<MyProfilePage />} />
               <Route path="/" element={<PrivateRoute element={<Dashboard />} />} />
               <Route path="logout" element={<PrivateRoute element={<Logout />} />} />
               <Route path="streamer" element={<PrivateRoute element={<Streamer />} />} />
