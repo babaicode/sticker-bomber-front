@@ -48,7 +48,7 @@ pipeline {
                     sh """
                         docker run -d \
                         --name sticker-bomber-front \
-                        --env-file /root/data/sticker-bomber-front/.env \
+                        --env-file /opt/sticker-bomber/.env \
                         --network app-network \
                         -p 5003:80 \
                         sticker-bomber.ru:5001/bomber-front:latest
