@@ -39,12 +39,25 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
+                    def containerName = "sticker-bomber-front"
+                    def imageTag = "sticker-bomber.ru:5001/bomber-front:latest"
+
+                    // Останавливаем старый контейнер фронта
+                    sh "docker stop ${containerName} || true"
+                    sh "docker rm ${containerName} || true"
+
+                    // Запускаем новый с тем же именем
                     sh """
-                        docker-compose down
-                        docker ps -aq | xargs -r docker rm -f
-                        docker-compose up -d
-                        docker network prune -f
+                        docker run -d \
+                        --name ${containerName} \
+                        --env-file ./sticker-bomber-front/.env \
+                        --network app-network \
+                        -p 5003:80 \
+                        ${imageTag}
                     """
+
+                    // Перезапускаем nginx, если он работает
+                    sh "docker restart nginx || true"
                 }
             }
         }
