@@ -107,7 +107,7 @@ const MyAvatar: React.FC = () => {
 
   return (
     <div className={styles.uploadContainer}>
-      {!ihaveAvatar && <h2>{t("change-avatar__big")}</h2>}
+      {!ihaveAvatar && <h3>{t("change-avatar__big")}</h3>}
   
       {avatarUrl ? (
         <div className={styles.avatarContainer}>

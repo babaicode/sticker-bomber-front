@@ -79,6 +79,12 @@
   "enter_new_password": "Enter new password",
   "update_password": "Update password",
 
-  "customer_support": "Customer support"
+  "customer_support": "Customer support",
 
+  "delete_my_account": "Delete my account",
+  "this_action_is_irreversible": "This action is irreversible. To confirm, please type",
+  "type_here": "type here",
+  "delete_account": "Delete account",
+
+  "my_profile": "My Profile"
 }
