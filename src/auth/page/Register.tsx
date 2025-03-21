@@ -90,8 +90,6 @@ const Register: React.FC = () => {
     console.log(API_URL, 'API_URL');
     console.log(import.meta.env, 'import.meta.env');
     console.log(import.meta.env.VITE_API_URL, 'import.meta.env.VITE_API_URL');
-    console.log(process.env, 'process.env');
-    console.log(process.env.VITE_API_URL, 'process.env.VITE_API_URL');
 
   };
 
