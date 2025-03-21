@@ -13,7 +13,7 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const { showAlert } = useAlert();
   const { t, i18n } = useTranslation();
-  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language || "en");
 
   const navigate = useNavigate();
   const handleSubmit = async (e: React.FormEvent) => {
@@ -56,9 +56,10 @@ const Login: React.FC = () => {
       languageOptions[
         (languageOptions.findIndex((lang) => lang.code === currentLanguage) + 1) %
           languageOptions.length
-      ];
-    i18n.changeLanguage(nextLang.code);
-    setCurrentLanguage(nextLang.code);
+      ]?.code || "en";
+  
+    i18n.changeLanguage(nextLang);
+    setCurrentLanguage(nextLang);
   };
 
   return (
