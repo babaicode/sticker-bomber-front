@@ -42,21 +42,18 @@ pipeline {
                     def containerName = "sticker-bomber-front"
                     def imageTag = "sticker-bomber.ru:5001/bomber-front:latest"
 
-                    // Останавливаем старый контейнер фронта
                     sh "docker stop ${containerName} || true"
                     sh "docker rm ${containerName} || true"
 
-                    // Запускаем новый с тем же именем
                     sh """
                         docker run -d \
-                        --name ${containerName} \
-                        --env-file ./sticker-bomber-front/.env \
+                        --name sticker-bomber-front \
+                        --env-file /root/data/sticker-bomber-front/.env \
                         --network app-network \
                         -p 5003:80 \
-                        ${imageTag}
+                        sticker-bomber.ru:5001/bomber-front:latest
                     """
 
-                    // Перезапускаем nginx, если он работает
                     sh "docker restart nginx || true"
                 }
             }
