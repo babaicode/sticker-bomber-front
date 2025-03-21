@@ -1,3 +1,3 @@
 export const Environment = {
-  StickerBomberBackApiURL: process.env.REACT_APP_API_URL || "http://localhost:3000",
+  StickerBomberBackApiURL: import.meta.env.VITE_API_URL || "http://localhost:3000",
 };
