@@ -62,5 +62,12 @@
   "received-stickers": "Полученные стикеры",
   "previous-(women)": "Предыдущая",
   "next-(women)": "Следующая",
-  "page": "Страница"
+  "page": "Страница",
+
+  "change-avatar__big": "Сменить аватар",
+  "change-avatar__small": "сменить аватар",
+  "select-avatar__small": "Выбрать аватар",
+  "change-my-avatar": "Сменить мой аватар",
+  "close__small": "закрыть",
+  "delete__small": "удалить"
 }

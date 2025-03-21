@@ -60,5 +60,12 @@
   "received-stickers": "Received Stickers",
   "previous-(women)": "Previous",
   "next-(women)": "Next",
-  "page": "Page"
+  "page": "Page",
+
+  "change-avatar__big": "Change Avatar",
+  "change-avatar__small": "change avatar",
+  "select-avatar__small": "Select Avatar",
+  "change-my-avatar": "Change my avatar",
+  "close__small": "close",
+  "delete__small": "delete"
 }
