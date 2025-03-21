@@ -131,3 +131,11 @@ body {
 .langButton img {
   width: fit-content;
 }
+
+.googleIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  border-radius: 50%;
+}

@@ -138,9 +138,10 @@ const Register: React.FC = () => {
             {languageOptions.find((lang) => lang.code === currentLanguage)?.flag}
           </button>
           <button className={style.googleButton} type="button" onClick={handleGoogleLogin}>
-            {t('login-with-google')}
+            <img className={style.googleIcon} src="/public/google-icon.jpg" alt="Google icon" />
           </button>
         </div>
+
       </form>
     </div>
   );
