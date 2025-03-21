@@ -74,5 +74,10 @@
   "change_email": "Сменить почту",
   "current_email": "Текущая почта",
   "update_email": "Обновить почту",
-  "enter_new_email": "Введите новую почту"
+  "enter_new_email": "Введите новую почту",
+
+  "change_password": "Сменить пароль",
+  "enter_old_password": "Введите старый пароль",
+  "enter_new_password": "Введите новый пароль",
+  "update_password": "Обновить пароль"
 }

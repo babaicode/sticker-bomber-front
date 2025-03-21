@@ -72,5 +72,11 @@
   "change_email": "Change email",
   "current_email": "Current email",
   "update_email": "Update email",
-  "enter_new_email": "Enter new email"
+  "enter_new_email": "Enter new email",
+
+  "change_password": "Change password",
+  "enter_old_password": "Enter old password",
+  "enter_new_password": "Enter new password",
+  "update_password": "Update password"
+
 }

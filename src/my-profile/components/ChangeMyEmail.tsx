@@ -25,8 +25,7 @@ const ChangeMyEmail = () => {
         `${Environment.StickerBomberBackApiURL}/user/user-email/${userId}`
       );
 
-      setCurrentEmail(response.data.email);
-
+      setCurrentEmail(response.data);
     } catch (error) {
       console.error("Error fetching email:", error);
       showAlert("Error fetching email.", "error");
@@ -51,7 +50,7 @@ const ChangeMyEmail = () => {
 
     try {
       await axios.patch(`${Environment.StickerBomberBackApiURL}/user/update-user-email/${userId}`, {
-        email,
+        email: email,
       });
       showAlert("Email updated successfully!", "success");
       setCurrentEmail(email);
