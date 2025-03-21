@@ -52,6 +52,11 @@ const NavBar: React.FC = () => {
     navigate("/logout");
   };
 
+  const goToMyProfile = () => {
+    navigate("/me");
+    setDropdownOpen(!dropdownOpen)
+  };
+
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -96,6 +101,11 @@ const NavBar: React.FC = () => {
             <li>
               <button className={styles.dropdownItemLogout} onClick={handleLogout}>
                 🚪 {t("logout")}
+              </button>
+            </li>
+            <li>
+              <button onClick={goToMyProfile} className={styles.dropdownItemMyProfile}>
+                🧍 {t("my_profile")}
               </button>
             </li>
           </ul>
