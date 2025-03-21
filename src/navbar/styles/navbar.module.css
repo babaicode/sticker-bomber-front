@@ -58,6 +58,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  min-width: 2rem;
 }
 
 .menuIcon {

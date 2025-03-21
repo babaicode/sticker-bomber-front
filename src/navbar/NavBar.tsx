@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import styles from "./styles/navbar.module.css";
@@ -52,6 +52,22 @@ const NavBar: React.FC = () => {
     navigate("/logout");
   };
 
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+
   return (
     <nav className={styles.navbar}>
       <Link to="/" className={styles.navLink}>{t("home")}</Link>
@@ -59,7 +75,7 @@ const NavBar: React.FC = () => {
       {isAdmin && !isStreamer && <Link to="/admin" className={styles.navLink}>{t("admin")}</Link>}
       {!isAdmin && !isStreamer && <Link to="/wonna-be-streamer" className={styles.navLink}>{t("wonna-be-a-streamer?")}</Link>}
 
-      <div className={styles.dropdown}>
+      <div className={styles.dropdown} ref={dropdownRef}>
         <button
           className={styles.dropdownToggle}
           type="button"

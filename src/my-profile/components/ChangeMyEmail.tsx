@@ -25,7 +25,6 @@ const ChangeMyEmail = () => {
         `${Environment.StickerBomberBackApiURL}/user/user-email/${userId}`
       );
 
-      // setCurrentEmail(response.data);
       setCurrentEmail(response.data.email);
 
     } catch (error) {
