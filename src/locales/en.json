@@ -67,5 +67,10 @@
   "select-avatar__small": "Select Avatar",
   "change-my-avatar": "Change my avatar",
   "close__small": "close",
-  "delete__small": "delete"
+  "delete__small": "delete",
+
+  "change_email": "Change email",
+  "current_email": "Current email",
+  "update_email": "Update email",
+  "enter_new_email": "Enter new email"
 }

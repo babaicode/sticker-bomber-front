@@ -69,5 +69,10 @@
   "select-avatar__small": "Выбрать аватар",
   "change-my-avatar": "Сменить мой аватар",
   "close__small": "закрыть",
-  "delete__small": "удалить"
+  "delete__small": "удалить",
+
+  "change_email": "Сменить почту",
+  "current_email": "Текущая почта",
+  "update_email": "Обновить почту",
+  "enter_new_email": "Введите новую почту"
 }
