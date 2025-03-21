@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     def imageTag = "sticker-bomber.ru:5001/bomber-front:${env.BUILD_NUMBER}"
-                    sh "docker build --build-arg REACT_APP_API_URL=${REACT_APP_API_URL} -t ${imageTag} ."
+                    sh "docker build --build-arg VITE_API_URL=https://sticker-bomber.ru/api -t ${imageTag} ."
                 }
             }
         }

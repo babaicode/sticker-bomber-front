@@ -1,17 +1,25 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  resolve: {
-    alias: {
-      '@': '/src',
+export default defineConfig(({ mode }) => {
+  // Загружаем переменные из `.env.production` или `.env.development`
+  const env = loadEnv(mode, process.cwd(), '')
+
+  return {
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
     },
-  },
-  plugins: [react()],
-  server: {
-    host: '0.0.0.0',  // Listen on all IP addresses
-    port: 5173,       // The port number to listen on
-    strictPort: true, // Fail if the port is already in use
-  },
+    plugins: [react()],
+    server: {
+      host: '0.0.0.0',
+      port: 5173,
+      strictPort: true,
+    },
+    define: {
+      'import.meta.env.VITE_API_URL': JSON.stringify(env.VITE_API_URL),
+    },
+  }
 })
