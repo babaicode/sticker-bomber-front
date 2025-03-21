@@ -77,6 +77,8 @@
   "change_password": "Change password",
   "enter_old_password": "Enter old password",
   "enter_new_password": "Enter new password",
-  "update_password": "Update password"
+  "update_password": "Update password",
+
+  "customer_support": "Customer support"
 
 }

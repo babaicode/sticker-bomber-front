@@ -1,5 +1,6 @@
 import ChangeMyEmail from "../components/ChangeMyEmail";
 import ChangeMyPassword from "../components/ChangeMyPassword";
+import CustomerSupport from "../components/CustomerSupport";
 import MyAvatar from "../components/MyAvatar";
 import styles from "../styles/MyProfilePage.module.css";
 
@@ -10,6 +11,7 @@ const MyProfilePage = () => {
       <MyAvatar />
       <ChangeMyEmail />
       <ChangeMyPassword />
+      <CustomerSupport />
     </div>
   )
 }

@@ -79,5 +79,7 @@
   "change_password": "Сменить пароль",
   "enter_old_password": "Введите старый пароль",
   "enter_new_password": "Введите новый пароль",
-  "update_password": "Обновить пароль"
+  "update_password": "Обновить пароль",
+
+  "customer_support": "Поддержка клиентов"
 }
