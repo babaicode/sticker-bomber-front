@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import axios from 'axios';
 import { Environment } from '@/environment';
 import { useAlert } from "@/alert/AlertContext";
@@ -16,6 +16,8 @@ export const AdminList = () => {
 
   const { showAlert } = useAlert();
   const { t } = useTranslation();
+
+  const fetchCalled = useRef(false);
 
   const fetchAdmins = useCallback(async () => {
     if (!streamerId) {
@@ -56,8 +58,11 @@ export const AdminList = () => {
   }, [streamerId, API_URL, showAlert]);
 
   useEffect(() => {
-    fetchAdmins();
-  }, [fetchAdmins]);
+    if (!fetchCalled.current) {
+      fetchCalled.current = true;
+      fetchAdmins();
+    }
+  }, []);
 
   return (
     <div className={styles.adminListContainer}>
