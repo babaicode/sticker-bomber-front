@@ -19,6 +19,11 @@ const Login: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!password || !email) {
+      showAlert('Please fill in all fields', 'error');
+      return;
+    }
+
     try {
       const data = await login(email, password);
       if (data.token) {

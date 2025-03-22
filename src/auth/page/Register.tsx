@@ -25,6 +25,11 @@ const Register: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!username || !password || !email) {
+      showAlert('Please fill in all fields', 'error');
+      return;
+    }
+
     try {
       const shouldSaveAdmin: boolean = await checkIfAdminLinkIsValid();
 
