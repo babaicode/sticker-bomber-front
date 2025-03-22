@@ -8,7 +8,7 @@ import { MostPopularStreamersInterface } from "../interfaces/MostPopularStreamer
 
 const ITEMS_PER_PAGE = 10;
 const MAX_PAGES = 5;
-const defaultAvatarPath = "public/default-avatar.jpg";
+const defaultAvatarPath = "/default-avatar.jpg";
 
 const MostPopularStreamers = () => {
     const [streamers, setStreamers] = useState<MostPopularStreamersInterface[]>([]);

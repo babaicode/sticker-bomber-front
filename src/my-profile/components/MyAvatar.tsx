@@ -20,25 +20,28 @@ const MyAvatar: React.FC = () => {
       showAlert("User ID not found.", "error");
       return;
     }
-
+  
     try {
       const response = await axios.get(
         `${Environment.StickerBomberBackApiURL}/user/avatar/${userId}`,
         { responseType: "blob" }
       );
-
-      if (response.data.type === 'application/json') {
+  
+      const contentType = response.headers["content-type"];
+      
+      if (!contentType || contentType.includes("application/json")) {
         setAvatarUrl(null);
         setIHaveAvatar(false);
         return;
       }
-
-      const avatarBlob = new Blob([response.data]);
-      const avatarObjectURL = URL.createObjectURL(avatarBlob);
-      setAvatarUrl(avatarObjectURL);
+  
+      const objectURL = URL.createObjectURL(response.data);
+      setAvatarUrl(objectURL);
       setIHaveAvatar(true);
     } catch (error) {
       console.error("Error fetching avatar:", error);
+      setAvatarUrl(null);
+      setIHaveAvatar(false);
     }
   };
 
@@ -109,16 +112,14 @@ const MyAvatar: React.FC = () => {
     <div className={styles.uploadContainer}>
       {!ihaveAvatar && <h3>{t("change-avatar__big")}</h3>}
   
-      {avatarUrl ? (
-        <div className={styles.avatarContainer}>
-          <img src={avatarUrl} alt="User Avatar" className={styles.avatar} />
-        </div>
-      ) : (
-        <div className={styles.avatarContainer}>
-          <img src={"/default-avatar.jpg"} alt="Default Avatar" className={styles.avatar} />
-        </div>
-      )}
-  
+      <div className={styles.avatarContainer}>
+        {ihaveAvatar ? (
+          <img src={avatarUrl || "/default-avatar.jpg"} alt="user_avatar" className={styles.avatar} />
+        ) : (
+          <img src="/default-avatar.jpg" alt="d_avtr" className={styles.avatar} />
+        )}
+      </div>
+
       {editAvatar ? (
         <>
           <label className={clsx(styles.myAvatarButtons, styles)}>
