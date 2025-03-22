@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles/Alert.module.css";
 import { useAlert } from "./AlertContext";
+import clsx from "clsx";
 
 const Alert: React.FC = () => {
   const { alerts, removeAlert } = useAlert();
@@ -15,7 +16,7 @@ const Alert: React.FC = () => {
       const timer = setTimeout(() => {
         removeAlert(currentAlert);
         setCurrentAlert((prev) => (prev !== null && prev < alerts.length - 1 ? prev + 1 : null));
-      }, 2000);
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
@@ -23,15 +24,16 @@ const Alert: React.FC = () => {
 
   return (
     <div className={styles.alertContainer}>
-      {currentAlert !== null && alerts[currentAlert] && (
-        <div className={`alert alert-${alerts[currentAlert].type}`}>
-          <span>{alerts[currentAlert].message}</span>
-          <button className={styles.closeButton} onClick={() => removeAlert(currentAlert)}>
-            &times;
-          </button>
-        </div>
-      )}
+  {currentAlert !== null && alerts[currentAlert] && (
+    <div className={clsx(styles.alert, styles[`alert-${alerts[currentAlert].type}`])}>
+      <div className={styles.message}>
+        <span>{alerts[currentAlert].message}</span>
+      </div>
+      <button className={styles.closeButton} onClick={() => removeAlert(currentAlert)}>×</button>
     </div>
+  )}
+</div>
+
   );
 };
 

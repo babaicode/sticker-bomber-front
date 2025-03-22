@@ -29,8 +29,6 @@ export const AlertProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const showAlert = (message: string, type: AlertType) => {
     setAlerts((prevAlerts) => [...prevAlerts, { message, type }]);
-
-    // Remove alert after 3 seconds
     setTimeout(() => {
       setAlerts((prevAlerts) => prevAlerts.slice(1));
     }, 1000);
