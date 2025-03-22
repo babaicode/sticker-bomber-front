@@ -24,16 +24,15 @@ const Alert: React.FC = () => {
 
   return (
     <div className={styles.alertContainer}>
-  {currentAlert !== null && alerts[currentAlert] && (
-    <div className={clsx(styles.alert, styles[`alert-${alerts[currentAlert].type}`])}>
-      <div className={styles.message}>
-        <span>{alerts[currentAlert].message}</span>
-      </div>
-      <button className={styles.closeButton} onClick={() => removeAlert(currentAlert)}>×</button>
+      {currentAlert !== null && alerts[currentAlert] && (
+        <div className={clsx(styles.alert, styles[`alert-${alerts[currentAlert].type}`])}>
+          <div className={styles.alertMessageBox}>
+            <span className={styles.alertMessage}>{alerts[currentAlert].message}</span>
+            <button className={styles.closeButton} onClick={() => removeAlert(currentAlert)}>×</button>
+          </div>
+        </div>
+      )}
     </div>
-  )}
-</div>
-
   );
 };
 
